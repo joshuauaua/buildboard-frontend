@@ -7,3 +7,9 @@
  h1{
   display: inline-block
  }
+
+ .card-red{
+  max-width: 18 rem;
+  background-color: red;
+  color: white;
+ }

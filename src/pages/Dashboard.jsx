@@ -9,7 +9,7 @@ export default function Dashboard(){
     <>
    <div className= "page-container">
     <h1>Dashboard</h1>
-    </div>
+  </div>
     </>
   )
 
