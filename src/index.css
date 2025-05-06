@@ -8,8 +8,12 @@
   display: inline-block
  }
 
- .card-red{
-  max-width: 18 rem;
-  background-color: red;
-  color: white;
- }
+ 
+ .welcome-message{
+  border: 20px;
+  border-radius: 5px;
+  border-color: green;  
+  border-style: solid;
+  border-width: 5px;
+  
+}

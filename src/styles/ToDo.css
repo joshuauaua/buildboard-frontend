@@ -1,0 +1,202 @@
+
+
+#myBtn{
+  max-width: 50px;
+  background-color: blue;
+  color: white;
+  padding: 10px ;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 50%;
+  border-color: transparent;
+  font-size: 24px;
+}
+
+#myBtn:hover{
+  background-color: rgb(255, 255, 255);
+  color: black;
+  cursor: pointer;
+  border-color: blue;
+}
+
+/* Modal: Add New Task Box */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  display: flex;
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 100px;
+  border: 1px solid #888;
+  border-radius: 70px;
+  width: 80%;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.search-bar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  max-width: 20%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.task {
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  position: relative;
+  width: 18rem;
+  height: 8rem;
+  background: #515151;
+  border-radius: 1rem;
+  overflow: hidden;
+  font-size: 16px;
+  --gradient: linear-gradient(to bottom, #2eadff, #3d83ff, #7e61ff);
+  --color: #32a6ff
+}
+
+.task:before {
+  position: absolute;
+  content: "";
+  inset: 0.0625rem;
+  border-radius: 0.9375rem;
+  background: #e0e0e0;
+  z-index: 2
+}
+
+.task:after {
+  position: absolute;
+  content: "";
+  width: 0.25rem;
+  inset: 0.65rem auto 0.65rem 0.5rem;
+  border-radius: 0.125rem;
+  background: var(--gradient);
+  transition: transform 300ms ease;
+  z-index: 4;
+}
+
+.task:hover:after {
+  transform: translateX(0.15rem)
+}
+
+.task-title {
+  color: var(--color);
+  padding: 0.65rem 0.25rem 0.4rem 1.25rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: transform 300ms ease;
+  z-index: 5;
+}
+
+
+.task:hover .task-body {
+  transform: translateX(0.15rem)
+}
+
+.task-note {
+  color: #99999d;
+  padding: 0 1.25rem;
+  transition: transform 300ms ease;
+  z-index: 5;
+}
+
+.task-deadline {
+color: #99999d;
+  padding: 0 1.25rem;
+  transition: transform 300ms ease;
+  z-index: 5;
+}
+
+.task-members{
+color: #99999d;
+  padding: 0 1.25rem;
+  transition: transform 300ms ease;
+  z-index: 5;
+}
+
+.task:hover .task-body {
+  transform: translateX(0.25rem)
+}
+
+
+
+.kanban-container {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.column {
+  background-color: #f4f5f7;
+  padding: 1rem;
+  border-radius: 8px;
+  min-height: 300px;
+  flex: 1;
+}
+
+.card {
+  background: white;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    cursor: grab;
+    transition: background 0.2s;
+  }
+
+
+.task-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.column{
+  margin: 50px;
+}
+
+.container-title{
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  background-color: blue;
+  color: white;
+}
