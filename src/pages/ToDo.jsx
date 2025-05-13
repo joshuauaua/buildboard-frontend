@@ -1,135 +1,148 @@
-import { useRef, useEffect } from "react";
-
 import "../styles/ToDo.css";
+import { useState } from "react";
+import CardContainer from "../components/taskPage/CardContainer";
+import Modal from "../components/taskPage/Modal";
 
 export default function ToDo() {
-  //Code for modal
-  const modalRef = useRef(null);
-  const btnRef = useRef(null);
-  const spanRef = useRef(null);
+  const [tasks, setTasks] = useState([
+    // Example task structure
+    {
+      title: "Design UI",
+      description: "Create mockups",
+      deadline: "2025-05-15",
+      teamMember: "Alice",
+      project: "Alpha",
+      status: "To Do",
+    },
+    {
+      title: "Design UI",
+      description: "Create mockups",
+      deadline: "2025-05-15",
+      teamMember: "Alice",
+      project: "Alpha",
+      status: "To Do",
+    },
+    {
+      title: "Design UI",
+      description: "Create mockups",
+      deadline: "2025-05-15",
+      teamMember: "Alice",
+      project: "Alpha",
+      status: "To Do",
+    },
 
-  useEffect(() => {
-    const modal = modalRef.current;
-    const btn = btnRef.current;
-    const span = spanRef.current;
+    {
+      title: "API Integration",
+      description: "Connect backend",
+      deadline: "2025-05-14",
+      teamMember: "Bob",
+      project: "Beta",
+      status: "Doing",
+    },
+    {
+      title: "Build Frontend",
+      description: "React Project",
+      deadline: "2025-05-23",
+      teamMember: "Bob",
+      project: "Beta",
+      status: "Doing",
+    },
+    {
+      title: "API Integration",
+      description: "Connect backend",
+      deadline: "2025-05-14",
+      teamMember: "Bob",
+      project: "Beta",
+      status: "Doing",
+    },
 
-    const openModal = () => {
-      modal.style.display = "block";
-    };
+    {
+      title: "Write Tests",
+      description: "Unit tests",
+      deadline: "2025-05-10",
+      teamMember: "Alice",
+      project: "Alpha",
+      status: "Done",
+    },
+  ]);
 
-    const closeModal = () => {
-      modal.style.display = "none";
-    };
+  const [filter, setFilter] = useState({
+    member: "",
+    project: "",
+    deadline: "",
+  });
 
-    const outsideClick = (event) => {
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    };
+  const filteredTasks = tasks.filter((task) => {
+    return (
+      (!filter.member || task.teamMember === filter.member) &&
+      (!filter.project || task.project === filter.project) &&
+      (!filter.deadline || task.deadline === filter.deadline)
+    );
+  });
 
-    btn.addEventListener("click", openModal);
-    span.addEventListener("click", closeModal);
-    window.addEventListener("click", outsideClick);
+  const handleNewTask = (newTask) => {
+    setTasks([...tasks, newTask]);
+  };
 
-    // Clean up listeners when component unmounts
-    return () => {
-      btn.removeEventListener("click", openModal);
-      span.removeEventListener("click", closeModal);
-      window.removeEventListener("click", outsideClick);
-    };
-  }, []);
+  const uniqueMembers = [...new Set(tasks.map((t) => t.teamMember))];
+  const uniqueProjects = [...new Set(tasks.map((t) => t.project))];
 
   return (
-    <>
-      <div className="page-container">
-        <h1 className="title">Tasks</h1>
+    <div>
+      <header className="task-header">
+        <h1>Task</h1>
+        <Modal onAddTask={handleNewTask} />
 
-        <input type="text" placeholder="Search..." className="search-bar" />
+        {/* Filter UI */}
 
-        <button id="myBtn" ref={btnRef}>
-          +
-        </button>
+        <div>
+          <label>Filter by Member: </label>
+          <select
+            onChange={(e) => setFilter({ ...filter, member: e.target.value })}
+          >
+            <option value="">All</option>
+            {uniqueMembers.map((m) => (
+              <option key={m} value={m}>
+                {m}
+              </option>
+            ))}
+          </select>
 
-        <div className="modal" id="myModal" ref={modalRef}>
-          <div className="modal-content">
-            <span className="close" ref={spanRef}>
-              &times;
-            </span>
-            <form>
-              <h1 className="title">Add a New Task </h1> <br />
-              <label htmlFor="Title">TITLE</label>
-              <br />
-              <input type="text" id="Title" name="Title" required />
-              <br />
-              <label for="project">PROJECT</label>
-              <br />
-              <select id="project" name="project">
-                <option value="1">Project 1</option>
-                <option value="2">Project 2</option>
-                <option value="3">Project 3</option>
-              </select>
-              <br />
-              <label for="deadline">DEADLINE</label>
-              <br />
-              <input type="date" id="deadline" name="deadline" />
-              <br />
-              <label for="members">MEMBERS</label>
-              <br />
-              <select id="members" name="members">
-                <option value="1">Member 1</option>
-                <option value="2">Member 2</option>
-                <option value="3">Member 3</option>
-              </select>
-              <br />
-              <label htmlFor="Notes">NOTES</label>
-              <br />
-              <input type="text" id="Notes" name="Notes" />
-            </form>
-          </div>
+          <label>Filter by Project: </label>
+          <select
+            onChange={(e) => setFilter({ ...filter, project: e.target.value })}
+          >
+            <option value="">All</option>
+            {uniqueProjects.map((p) => (
+              <option key={p} value={p}>
+                {p}
+              </option>
+            ))}
+          </select>
+
+          <label>Filter by Deadline: </label>
+          <input
+            type="date"
+            onChange={(e) => setFilter({ ...filter, deadline: e.target.value })}
+          />
         </div>
+      </header>
 
-        <div className="task-container">
-          <div className="column">
-            <h2 className="container-title">To Do</h2>
-            <div className="column-space">
-              
-              <div class="task">
-                <div class="task-title">Task # 1</div>
-                <div class="task-note">Build something</div>
-                <div class="task-members"> Member images goes here </div>
-                <div class="task-deadline">Deadline 20/12/2025</div>
-              </div>
-
-              <div class="task">
-                <div class="task-title">Task # 2</div>
-                <div class="task-note">Build something</div>
-                <div class="task-members"> Member images goes here </div>
-                <div class="task-deadline">Deadline 20/12/2025</div>
-              </div>
-
-              <div class="task">
-                <div class="task-title">Task # 3</div>
-                <div class="task-note">Build something</div>
-                <div class="task-members"> Member images goes here </div>
-                <div class="task-deadline">Deadline 20/12/2025</div>
-              </div>
-
-
-
-            </div>
-          </div>
-
-          <div className="column">
-            <h2 className="container-title">Doing</h2>
-            <div className="column-space"></div>
-          </div>
-
-          <div className="column">
-            <h2 className="container-title">Done</h2>
-            <div className="column-space"></div>
-          </div>
-        </div>
+      {/* Task Columns */}
+      <div style={{ display: "flex", marginTop: "20px" }}>
+        <CardContainer
+          title="To Do"
+          tasks={filteredTasks.filter((t) => t.status === "To Do")}
+        />
+        <CardContainer
+          title="Doing"
+          tasks={filteredTasks.filter((t) => t.status === "Doing")}
+        />
+        <CardContainer
+          title="Done"
+          tasks={filteredTasks.filter((t) => t.status === "Done")}
+        />
       </div>
-    </>
+    </div>
   );
 }

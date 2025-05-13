@@ -4,11 +4,12 @@ import Footer from './components/Footer/Footer'
 import Navbar from './components/navbar/Navbar'
 import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
-import ToDo from './pages/ToDo'
 import Calendar from './pages/Calendar'
 import Settings from './pages/Settings'
 import Team from './pages/Team'
 import LogOut from './pages/LogOut'
+import ToDo from './pages/ToDo'
+
 
 export default function  App() {
 
