@@ -1,4 +1,4 @@
-import "../styles/ToDo.css";
+import "./ToDo.css";
 import { useState } from "react";
 import CardContainer from "../components/taskPage/CardContainer";
 import Modal from "../components/taskPage/Modal";
@@ -89,13 +89,17 @@ export default function ToDo() {
 
   return (
     <div>
-      <header className="task-header">
+      <header className="header-content">
         <h1>Task</h1>
         <Modal onAddTask={handleNewTask} />
+        </header>
+
 
         {/* Filter UI */}
 
-        <div>
+        <div className="filter-container">
+
+          <div className="filter-member">
           <label>Filter by Member: </label>
           <select
             onChange={(e) => setFilter({ ...filter, member: e.target.value })}
@@ -107,7 +111,9 @@ export default function ToDo() {
               </option>
             ))}
           </select>
+          </div>
 
+          <div className="filter-member">
           <label>Filter by Project: </label>
           <select
             onChange={(e) => setFilter({ ...filter, project: e.target.value })}
@@ -119,16 +125,19 @@ export default function ToDo() {
               </option>
             ))}
           </select>
+          </div>
 
+          <div className="filter-member">
           <label>Filter by Deadline: </label>
           <input
             type="date"
             onChange={(e) => setFilter({ ...filter, deadline: e.target.value })}
           />
+          </div>
         </div>
-      </header>
 
       {/* Task Columns */}
+      <main className="main-content">
       <div style={{ display: "flex", marginTop: "20px" }}>
         <CardContainer
           title="To Do"
@@ -143,6 +152,7 @@ export default function ToDo() {
           tasks={filteredTasks.filter((t) => t.status === "Done")}
         />
       </div>
+      </main>
     </div>
   );
 }

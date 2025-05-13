@@ -37,7 +37,7 @@ export default function Modal({ onAddTask }) {
 
   return (
     <>
-      <button onClick={() => setIsOpen(true)} className="openModalBtn">+</button>
+      <button onClick={() => setIsOpen(true)} className="custom-btn btn-1">+</button>
 
       {isOpen && (
         <div

@@ -2,18 +2,18 @@ export default function Card({ task }) {
   const getStatusColor = (status) => {
     switch (status) {
       case "To Do":
-        return "lightcoral"; // red
+        return "lightcoral"; 
       case "Doing":
-        return "khaki"; // yellow
+        return "khaki"; 
       case "Done":
-        return "lightgreen"; // green
+        return "lightgreen"; 
       default:
         return "white";
     }
   };
 
   return (
-    <div style={{
+    <div className="card-style" style={{
       backgroundColor: getStatusColor(task.status),
       border: "1px solid #ccc",
       padding: "10px",

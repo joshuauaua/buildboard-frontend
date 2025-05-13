@@ -1,8 +1,0 @@
-
-
-.task-header{
-  padding: 50px;
-  display: grid;
-  grid-template-columns: repeat(2, 2fr);
-  gap: 20px;
-}

@@ -1,28 +1,17 @@
+import React from 'react';
 
-import "../styles/Dashboard.css";
+import PulseDashboard from '../components/dashboardPage/PulseDashboard';
+import TeamPulse from '../components/dashboardPage/TeamPulse';
 
 
-export default function Dashboard(){
-
-
-  return(
-    <>
-   <div className= "page-container">
-
-    <header className="dashboard-header">
-    <h1>Dashboard</h1>
-
-    <div className="welcome-message">
-    <h1>Hi, (user)!</h1>
-    <p>Welcome to your Dashboard page!</p>
-    <p>This is where you can manage your tasks and projects.</p>
-    <p>Click on the button below to begin personalising your dashboard</p>
+const Dashboard = () => {
+  return (
+    <div>
+   
+      <PulseDashboard />
+      <TeamPulse />
     </div>
-    </header>
+  );
+};
 
-
-  </div>
-    </>
-  )
-
-}
+export default Dashboard;
