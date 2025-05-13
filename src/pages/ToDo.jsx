@@ -5,7 +5,6 @@ import Modal from "../components/taskPage/Modal";
 
 export default function ToDo() {
   const [tasks, setTasks] = useState([
-    
     // Boiler plate tasks
     {
       title: "Design UI",
@@ -88,71 +87,99 @@ export default function ToDo() {
   const uniqueMembers = [...new Set(tasks.map((t) => t.teamMember))];
   const uniqueProjects = [...new Set(tasks.map((t) => t.project))];
 
+  const uniqueDeadlines = [...new Set(tasks.map((t) => t.deadline))];
+
   return (
     <div>
       <header className="header-content">
         <h1>Task</h1>
         <Modal onAddTask={handleNewTask} />
-        </header>
+      </header>
 
+      {/* Filter UI */}
 
-        {/* Filter UI */}
+      <div className="filter-dropdown">
+        <label htmlFor="filterType">Filter:</label>
+        <select
+          id="filterType"
+          value={
+            filter.member
+              ? `member:${filter.member}`
+              : filter.project
+              ? `project:${filter.project}`
+              : filter.deadline
+              ? `deadline:${filter.deadline}`
+              : ""
+          }
+          onChange={(e) => {
+            const [type, value] = e.target.value.split(":");
 
-        <div className="filter-container">
+            if (!type || !value) {
+              // Reset all filters
+              setFilter({ member: "", project: "", deadline: "" });
+              return;
+            }
 
-          <div className="filter-member">
-          <label>Filter by Member: </label>
-          <select
-            onChange={(e) => setFilter({ ...filter, member: e.target.value })}
-          >
-            <option value="">All</option>
+            // Reset other filters when one is chosen
+            setFilter({
+              member: type === "member" ? value : "",
+              project: type === "project" ? value : "",
+              deadline: type === "deadline" ? value : "",
+            });
+          }}
+        >
+          <option value="">All Tasks</option>
+
+          <optgroup label="By Member">
             {uniqueMembers.map((m) => (
-              <option key={m} value={m}>
+              <option key={`member-${m}`} value={`member:${m}`}>
                 {m}
               </option>
             ))}
-          </select>
-          </div>
+          </optgroup>
 
-          <div className="filter-member">
-          <label>Filter by Project: </label>
-          <select
-            onChange={(e) => setFilter({ ...filter, project: e.target.value })}
-          >
-            <option value="">All</option>
+          <optgroup label="By Project">
             {uniqueProjects.map((p) => (
-              <option key={p} value={p}>
+              <option key={`project-${p}`} value={`project:${p}`}>
                 {p}
               </option>
             ))}
-          </select>
-          </div>
+          </optgroup>
 
-          <div className="filter-member">
-          <label>Filter by Deadline: </label>
-          <input
-            type="date"
-            onChange={(e) => setFilter({ ...filter, deadline: e.target.value })}
-          />
-          </div>
-        </div>
+          <optgroup label="By Deadline">
+            {uniqueDeadlines.map((d) => (
+              <option key={`deadline-${d}`} value={`deadline:${d}`}>
+                {new Date(d).toLocaleDateString()}
+              </option>
+            ))}
+          </optgroup>
+        </select>
+
+        {/* Clear Filters Button */}
+        <button
+          onClick={() => setFilter({ member: "", project: "", deadline: "" })}
+          style={{ marginLeft: "1rem" }}
+        >
+          Clear Filters
+        </button>
+      </div>
 
       {/* Task Columns */}
       <main className="main-content">
-      <div style={{ display: "flex", marginTop: "20px" }}>
-        <CardContainer
-          title="To Do"
-          tasks={filteredTasks.filter((t) => t.status === "To Do")}
-        />
-        <CardContainer
-          title="Doing"
-          tasks={filteredTasks.filter((t) => t.status === "Doing")}
-        />
-        <CardContainer
-          title="Done"
-          tasks={filteredTasks.filter((t) => t.status === "Done")}
-        />
-      </div>
+        <div style={{ display: "flex", marginTop: "20px" }}>
+          <CardContainer
+            title="To Do"
+            tasks={filteredTasks.filter((t) => t.status === "To Do")}
+          />
+          <CardContainer
+            title="Doing"
+            tasks={filteredTasks.filter((t) => t.status === "Doing")}
+          />
+          <CardContainer
+            title="Done"
+            tasks={filteredTasks.filter((t) => t.status === "Done")}
+          />
+        </div>
       </main>
     </div>
   );

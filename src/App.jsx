@@ -4,7 +4,7 @@ import Footer from './components/Footer/Footer'
 import Navbar from './components/navbar/Navbar'
 import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
-import Calendar from './pages/Calendar'
+import Calendars from './pages/Calendars'
 import Settings from './pages/Settings'
 import Team from './pages/Team'
 import LogOut from './pages/LogOut'
@@ -24,7 +24,7 @@ export default function  App() {
         <Route path="/dashboard" element={<Dashboard/>}>/Dashboard</Route>
         <Route path="/team" element={<Team/>}>/Team</Route>
         <Route path="/to-do" element={<ToDo/>}>/To Do</Route>
-        <Route path="/calendar" element={<Calendar/>}>/Calendar</Route>
+        <Route path="/calendar" element={<Calendars/>}>/Calendar</Route>
         <Route path="/settings" element={<Settings/>}>/Settings</Route>
         <Route path="/log-out" element={<LogOut/>}>/LogOut</Route>
         <Route path="/log-in" element={<Login/>}>/LogIn</Route>        

@@ -25,3 +25,14 @@
   display: block;
   padding: 80px;
 }
+
+.filter-dropdown {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-right: 100px;
+  padding-top: 0%;
+
+}
