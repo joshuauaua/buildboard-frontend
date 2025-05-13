@@ -5,7 +5,8 @@ import Modal from "../components/taskPage/Modal";
 
 export default function ToDo() {
   const [tasks, setTasks] = useState([
-    // Example task structure
+    
+    // Boiler plate tasks
     {
       title: "Design UI",
       description: "Create mockups",
