@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function SignInForm() {
+export default function LogIn() {
   return (
     <form className="form">
       <p className="form-title">Sign in to your account</p>
@@ -19,10 +20,9 @@ function SignInForm() {
       </button>
 
       <p className="signup-link">
-        No account? <a href="#">Sign up</a>
+        No account? <Link to="/sign-up">Sign up</Link>
       </p>
     </form>
   );
 }
 
-export default SignInForm;

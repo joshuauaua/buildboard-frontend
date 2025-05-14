@@ -9,7 +9,7 @@ import Settings from './pages/Settings'
 import Team from './pages/Team'
 import LogOut from './pages/LogOut'
 import ToDo from './pages/ToDo'
-import Login from './pages/LogIn'    
+import LogIn from './pages/LogIn'    
 import SignUp from './pages/SignUp'  
 
 
@@ -27,7 +27,7 @@ export default function  App() {
         <Route path="/calendar" element={<Calendars/>}>/Calendar</Route>
         <Route path="/settings" element={<Settings/>}>/Settings</Route>
         <Route path="/log-out" element={<LogOut/>}>/LogOut</Route>
-        <Route path="/log-in" element={<Login/>}>/LogIn</Route>        
+        <Route path="/log-in" element={<LogIn/>}>/Log-In</Route>        
         <Route path="/sign-up" element={<SignUp/>}>/SignUp</Route>    
       </Routes>
       <Footer/>

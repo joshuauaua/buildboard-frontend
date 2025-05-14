@@ -8,7 +8,7 @@ const LogOut = () => {
     // Rensa eventuell inloggningsstatus
     localStorage.removeItem('user'); // eller vad du nu sparar
     // Navigera tillbaka till login
-    navigate('/login');
+    navigate('/log-in');
   }, [navigate]);
 
   return null; // Denna komponent visar inget – den bara loggar ut direkt
