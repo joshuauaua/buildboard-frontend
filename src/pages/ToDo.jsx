@@ -92,7 +92,7 @@ export default function ToDo() {
   return (
     <div>
       <header className="header-content">
-        <h1>Task</h1>
+        <h1 className="header-title">Task</h1>
         <Modal onAddTask={handleNewTask} />
       </header>
 
