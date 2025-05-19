@@ -1,3 +1,4 @@
+
 .header-content{
   font-family: 'Segoe UI', sans-serif;
   background-color: #f5f5f5;
@@ -8,7 +9,14 @@
   margin-bottom: 30px;
 }
 
+
 .header-title{
   font-size: 28px;
   margin: 0;
+}
+
+.calendar{
+  padding: 1rlh;
+  background-color: white;
+  border-radius: 20px ;
 }

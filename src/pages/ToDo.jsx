@@ -94,11 +94,14 @@ export default function ToDo() {
       <header className="header-content">
         <h1 className="header-title">Task</h1>
         <Modal onAddTask={handleNewTask} />
+
+      
       </header>
 
-      {/* Filter UI */}
 
-      <div className="filter-dropdown">
+        {/* Filter UI */}
+
+        <div className="filter-dropdown">
         <label htmlFor="filterType">Filter:</label>
         <select
           id="filterType"
@@ -163,9 +166,14 @@ export default function ToDo() {
           Clear Filters
         </button>
       </div>
+      
+      
 
       {/* Task Columns */}
       <main className="main-content">
+
+        <h2 className="main-title">Task Board</h2>
+
         <div style={{ display: "flex", marginTop: "20px" }}>
           <CardContainer
             title="To Do"

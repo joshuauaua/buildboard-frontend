@@ -1,9 +1,8 @@
 
 import "./Team.css";
 import StartThread from "../components/teamPage/StartThread";
-import UserStack from "../components/teamPage/UserStack";
-
-
+import TeamDirectory from "../components/teamPage/TeamDirectory";
+import MessageBoard from "../components/teamPage/MessageBoard";
 
 
 export default function Team(){
@@ -12,12 +11,16 @@ export default function Team(){
   return(
     <>
    <div className= "page-container">
-    <header className="team-header">
-    <h1>Team</h1>
+    <header className="header-content">
+    <h1 className="header-title">Team</h1>
     <StartThread/>
     </header>
 
-    <UserStack/>
+
+    <TeamDirectory/>
+
+    <MessageBoard/>
+
 
 
     </div>
