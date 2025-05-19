@@ -3,8 +3,9 @@
 .header-content{
   font-family: 'Segoe UI', sans-serif;
   background-color: #f5f5f5;
-  padding: 50px;
-  display: flex;
+  padding: 80px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
@@ -16,6 +17,14 @@
   margin: 0;
 }
 
+.header-subtitle{
+  font-size: 18px;
+  font-weight: lighter;
+  color: #666;
+}
+.header-subtitle:hover{
+  color: #333;
+}
 
 .filter-container{
   align-items: left;
@@ -34,6 +43,9 @@
   justify-content: space-between;
   display: block;
   padding: 80px;
+  border-color: gray;
+  border-width: 1px;
+  border-style: solid;
 }
 
 .filter-dropdown {

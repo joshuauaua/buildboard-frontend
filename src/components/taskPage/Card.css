@@ -12,3 +12,11 @@
   cursor: pointer;
 }
 
+
+
+.task-deadline{
+  font-size: 14px;
+  color: #888;
+  margin-top: 5px;
+  background-color: gray;
+}

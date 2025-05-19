@@ -2,6 +2,7 @@ import "./ToDo.css";
 import { useState } from "react";
 import CardContainer from "../components/taskPage/CardContainer";
 import Modal from "../components/taskPage/Modal";
+import { Link } from "react-router-dom";
 
 export default function ToDo() {
   const [tasks, setTasks] = useState([
@@ -91,9 +92,11 @@ export default function ToDo() {
 
   return (
     <div>
-      <header className="header-content">
+      <header className="header-content-top">
         <h1 className="header-title">Task</h1>
-        <Modal onAddTask={handleNewTask} />
+        <h3 className="header-subtitle">
+          <Link to="/dashboard">PlanIT</Link> / <Link to="/task">Task</Link>
+        </h3>
 
       
       </header>
@@ -177,17 +180,23 @@ export default function ToDo() {
         <div style={{ display: "flex", marginTop: "20px" }}>
           <CardContainer
             title="To Do"
+            numberOfTasks={filteredTasks.filter((t) => t.status === "To Do").length}
             tasks={filteredTasks.filter((t) => t.status === "To Do")}
           />
           <CardContainer
             title="Doing"
+            numberOfTasks={filteredTasks.filter((t) => t.status === "Doing").length}
             tasks={filteredTasks.filter((t) => t.status === "Doing")}
           />
           <CardContainer
             title="Done"
+            numberOfTasks={filteredTasks.filter((t) => t.status === "Done").length}
             tasks={filteredTasks.filter((t) => t.status === "Done")}
           />
         </div>
+
+
+
       </main>
     </div>
   );

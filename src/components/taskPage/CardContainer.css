@@ -1,0 +1,16 @@
+
+
+.card-container-header{
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+
+.number-of-tasks{
+  font-size: 15px;
+  font-weight: light;
+  color: #bcbcbc;
+}
