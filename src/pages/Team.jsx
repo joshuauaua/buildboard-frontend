@@ -1,7 +1,6 @@
 
 import "./Team.css";
 import TeamDirectory from "../components/teamPage/TeamDirectory";
-import MessageBoard from "../components/teamPage/MessageBoard";
 import { Link } from "react-router-dom";
 
 
@@ -19,7 +18,6 @@ export default function Team(){
 
     <TeamDirectory/>
 
-    <MessageBoard/>
 
 
 
