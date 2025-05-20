@@ -1,0 +1,48 @@
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  background: white;
+}
+
+.settings-header-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.settings-subtitle {
+  margin: 4px 0 0;
+  color: #666;
+  font-size: 1rem;
+}
+
+.settings-logout-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  background: none;
+  border: 1px solid #888;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #444;
+  transition: background-color 0.2s ease;
+}
+
+.settings-logout-button:hover {
+  background-color: #eee;
+}
+
+.settings-logout-icon {
+  width: 20px;
+  height: 20px;
+}

@@ -1,47 +1,88 @@
-*{
-  box-sizing:border-box;
+* {
+  box-sizing: border-box;
 }
 
-body{
+body {
   margin: 0;
 }
 
-
-.navbar{
+.navbar {
   background-color: rgb(72, 0, 255);
   color: white;
   display: flex;
   justify-content: space-between;
-  color: inherit;
   align-items: center;
   padding: 0 1rem;
+  position: relative;
 }
 
-.site-title{
+.site-title {
   font-size: 24px;
   font-weight: bold;
   color: white;
 }
 
-.navbar li{
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navbar li {
   display: inline;
   margin-right: 60px;
   font-size: 22px;
-  text-decoration: none;
   color: white;
+  cursor: pointer;
 }
 
 a {
-  text-decoration: none; 
+  text-decoration: none;
   color: inherit;
 }
 
-.navbar li:active{
-  background-color: rgb(209, 31, 18)
+.navbar li:active {
+  background-color: rgb(209, 31, 18);
 }
-  
-.navbar li:hover{
+
+.navbar li:hover {
   background-color: rgba(0, 13, 152, 0.276);
 }
 
+.hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
 
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    background-color: rgb(72, 0, 255);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    border-radius: 0 0 0 10px;
+  }
+
+  .navbar ul.open {
+    transform: translateX(0);
+  }
+
+  .navbar li {
+    margin: 1rem 0;
+    font-size: 20px;
+  }
+}
