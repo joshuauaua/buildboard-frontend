@@ -9,9 +9,9 @@ export default function Modal({ onAddTask }) {
     title: "",
     description: "",
     deadline: "",
-    notes: "",
     teamMember: "",
     project: "",
+    labelcolor: "",
     status: "To Do", // default status
   });
 
@@ -28,9 +28,9 @@ export default function Modal({ onAddTask }) {
       title: "",
       description: "",
       deadline: "",
-      notes: "",
       teamMember: "",
       project: "",
+      labelcolor: "",
       status: "To Do",
     });
   };
@@ -86,28 +86,23 @@ export default function Modal({ onAddTask }) {
               </div>
 
               <div>
-                <label>Description:</label><br />
-                <textarea name="description" value={formData.description} onChange={handleChange} required />
-              </div>
-
-              <div>
-                <label>Deadline:</label><br />
+                <label>Due Date:</label><br />
                 <input type="date" name="deadline" value={formData.deadline} onChange={handleChange} required />
               </div>
 
               <div>
-                <label>Notes:</label><br />
-                <textarea name="notes" value={formData.notes} onChange={handleChange} />
-              </div>
-
-              <div>
-                <label>Team Member:</label><br />
+                <label>Assigned To:</label><br />
                 <input type="text" name="teamMember" value={formData.teamMember} onChange={handleChange} required />
               </div>
 
               <div>
-                <label>Project:</label><br />
+                <label>Label:</label><br />
                 <input type="text" name="project" value={formData.project} onChange={handleChange} required />
+              </div>
+
+              <div>
+                <label>Label Color:</label><br />
+                <input type="color" name="labelcolor" value={formData.labelcolor} onChange={handleChange} required />
               </div>
 
               <div style={{ marginTop: "10px" }}>

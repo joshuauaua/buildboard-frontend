@@ -89,6 +89,7 @@ const sampleData = [
 function ProfileCard({ member, onView }) {
   return (
     <div className="card">
+      <img className="profile-picture" src= "./src/assets/user.png" alt={member.name} />
       <h2>{member.name}</h2>
       <p><strong>Role:</strong> {member.role}</p>
       <p><strong>Location:</strong> {member.location}</p>
@@ -170,6 +171,9 @@ export default function TeamDirectory() {
 
   return (
     <div className="team-directory">
+      
+      
+      <header className="header-directory">
       <h2>Directory</h2>
       <Filters filters={filters} setFilters={setFilters} allMembers={sampleData} />
 
@@ -181,6 +185,7 @@ export default function TeamDirectory() {
           <option value="location">Location</option>
         </select>
       </div>
+      </header>
 
       <div className="card-grid">
         {paginated.map((member) => (
@@ -206,12 +211,17 @@ export default function TeamDirectory() {
       {selectedMember && (
         <div className="modal" onClick={() => setSelectedMember(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+
+          
+          <button className="close-btn" onClick={() => setSelectedMember(null)}>X</button>
+          
+            <img className="profile-picture" src= "./src/assets/user.png" alt={selectedMember.name} />
             <h2>{selectedMember.name}</h2>
             <p><strong>Role:</strong> {selectedMember.role}</p>
             <p><strong>Location:</strong> {selectedMember.location}</p>
             <p><strong>Team:</strong> {selectedMember.team}</p>
             <p>{selectedMember.description}</p>
-            <button onClick={() => setSelectedMember(null)}>Close</button>
+            
           </div>
         </div>
       )}
