@@ -10,7 +10,8 @@ import Team from './pages/Team'
 import LogOut from './pages/LogOut'
 import ToDo from './pages/ToDo'
 import LogIn from './pages/LogIn'    
-import SignUp from './pages/SignUp'  
+import SignUp from './pages/SignUp' 
+import About from './pages/About' 
 
 
 export default function  App() {
@@ -28,7 +29,9 @@ export default function  App() {
         <Route path="/settings" element={<Settings/>}>/Settings</Route>
         <Route path="/log-out" element={<LogOut/>}>/LogOut</Route>
         <Route path="/log-in" element={<LogIn/>}>/Log-In</Route>        
-        <Route path="/sign-up" element={<SignUp/>}>/SignUp</Route>    
+        <Route path="/sign-up" element={<SignUp/>}>/SignUp</Route>  
+        <Route path="/about" element={<About/>}>/About</Route>  
+  
       </Routes>
       <Footer/>
     </BrowserRouter>
