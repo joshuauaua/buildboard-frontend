@@ -1,13 +1,17 @@
-
 import "../index.css";
+import React from 'react';
+import LogIn from '../components/LogIn'; 
 
-export default function LogOut(){
 
-  return(
-    <>
-   <div className= "page-container">
-    <h1>Log Out</h1>
-    </div>
-    </>
-  )
-}
+      
+    const LogOut = () => {
+      return (
+        <div>
+          LogIn
+          <LogIn />
+       
+        </div>
+      );
+    };
+    
+    export default LogOut;

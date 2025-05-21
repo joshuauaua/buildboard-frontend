@@ -1,3 +1,7 @@
+body{
+  background: rgba(255, 255, 255, 0.903);
+}
+
 .page-container{display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -8,8 +12,3 @@
   display: inline-block
  }
 
- .card-red{
-  max-width: 18 rem;
-  background-color: red;
-  color: white;
- }

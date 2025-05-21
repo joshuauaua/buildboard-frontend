@@ -1,16 +1,30 @@
+import React, { useState } from 'react';
+import DailyCheckIn from '../components/dashboardPage/DailyCheckIn';
+import TodaysFocus from '../components/dashboardPage/TodaysFocus';
+import QuickShortcuts from '../components/dashboardPage/QuickShortcuts';
+import TeamPulse from '../components/dashboardPage/TeamPulse';
+import '../components/dashboardPage/DashboardLayout.css';
+import CustomSidebar from '../components/navbar/CustomSidebar';
 
-import "../index.css";
+const Dashboard = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
+  return (
+    <div className="dashboard-layout">
+      <CustomSidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
+      
+      <div
+        className={`dashboard-content ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}
+      >
+        <div className="dashboard-row">
+          <DailyCheckIn />
+          <TodaysFocus />
+        </div>
+        <QuickShortcuts />
+        <TeamPulse />
+      </div>
+    </div>
+  );
+};
 
-export default function Dashboard(){
-
-
-  return(
-    <>
-   <div className= "page-container">
-    <h1>Dashboard</h1>
-  </div>
-    </>
-  )
-
-}
+export default Dashboard;
