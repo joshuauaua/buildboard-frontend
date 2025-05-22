@@ -14,12 +14,14 @@ body {
   align-items: center;
   padding: 0 1rem;
   position: relative;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  
 }
 
 .site-title {
   font-size: 24px;
   font-weight: bold;
-  color: rgb(92, 84, 255);
+  color: #4f46e5;
 }
 
 .navbar ul {
@@ -34,7 +36,7 @@ body {
   display: inline;
   margin-right: 60px;
   font-size: 22px;
-  color:rgb(92, 84, 255);
+  color:#7a7a7a;
   cursor: pointer;
 }
 
@@ -67,7 +69,7 @@ a {
 
   .navbar ul {
     flex-direction: column;
-    background-color: rgb(72, 0, 255);
+    background-color: #4f46e5;
     position: absolute;
     top: 60px;
     right: 0;

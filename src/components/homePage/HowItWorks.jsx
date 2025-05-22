@@ -3,17 +3,17 @@ import styles from './HowItWorks.module.css';
 function HowItWorks() {
   const steps = [
     {
-      step: '①',
+      step: '1',
       title: 'Skapa konto',
       description: 'Börja genom att skapa ett konto för dig och ditt team.',
     },
     {
-      step: '②',
+      step: '2',
       title: 'Lägg till medlemmar',
       description: 'Bjud in teammedlemmar för att samarbeta effektivt.',
     },
     {
-      step: '③',
+      step: '3',
       title: 'Börja planera',
       description: 'Använd våra verktyg för att sätta mål och följa upp dem.',
     },
