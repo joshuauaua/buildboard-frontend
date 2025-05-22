@@ -1,4 +1,5 @@
 
+import axios from 'axios';
 import './Modal.css'
 import { useState } from "react";
 
@@ -8,11 +9,10 @@ export default function Modal({ onAddTask }) {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    deadline: "",
+    dueDate: "",
     teamMember: "",
     project: "",
-    labelcolor: "",
-    status: "To Do", // default status
+    status: "Ej påbörjad", // default status
   });
 
   const handleChange = (e) => {
@@ -24,15 +24,16 @@ export default function Modal({ onAddTask }) {
     e.preventDefault();
     onAddTask(formData); // pass task up
     setIsOpen(false);
-    setFormData({
-      title: "",
-      description: "",
-      deadline: "",
-      teamMember: "",
-      project: "",
-      labelcolor: "",
-      status: "To Do",
-    });
+    const taskUsername = formData.teamMember;
+    const { teamMember, ...newTask } = formData;
+    (async () => {
+      try {
+        const response = await axios.post(`http://localhost:5069/tasks`, newTask);
+        console.log("Task added successfully:", response.data);
+      } catch (error) {
+        console.error("Error adding task:", error);
+      }
+    })();  
   };
 
   return (
@@ -87,7 +88,7 @@ export default function Modal({ onAddTask }) {
 
               <div>
                 <label>Due Date:</label><br />
-                <input type="date" name="deadline" value={formData.deadline} onChange={handleChange} required />
+                <input type="date" name="dueDate" value={formData.dueDate} onChange={handleChange} required />
               </div>
 
               <div>
@@ -100,13 +101,10 @@ export default function Modal({ onAddTask }) {
                 <input type="text" name="project" value={formData.project} onChange={handleChange} required />
               </div>
 
-              <div>
-                <label>Label Color:</label><br />
-                <input type="color" name="labelcolor" value={formData.labelcolor} onChange={handleChange} required />
-              </div>
-
               <div style={{ marginTop: "10px" }}>
                 <button type="submit">Add Task</button>
+
+
               </div>
             </form>
           </div>

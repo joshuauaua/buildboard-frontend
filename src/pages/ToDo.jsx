@@ -1,71 +1,39 @@
 import "./ToDo.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CardContainer from "../components/taskPage/CardContainer";
 import Modal from "../components/taskPage/Modal";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function ToDo() {
-  const [tasks, setTasks] = useState([
-    // Boiler plate tasks
-    {
-      title: "Design UI",
-      description: "Create mockups",
-      deadline: "2025-05-15",
-      teamMember: "Alice",
-      project: "Alpha",
-      status: "To Do",
-    },
-    {
-      title: "Design UI",
-      description: "Create mockups",
-      deadline: "2025-05-15",
-      teamMember: "Alice",
-      project: "Alpha",
-      status: "To Do",
-    },
-    {
-      title: "Design UI",
-      description: "Create mockups",
-      deadline: "2025-05-15",
-      teamMember: "Alice",
-      project: "Alpha",
-      status: "To Do",
-    },
+  const [tasks, setTasks] = useState([{
 
-    {
-      title: "API Integration",
-      description: "Connect backend",
-      deadline: "2025-05-14",
-      teamMember: "Bob",
-      project: "Beta",
-      status: "Doing",
-    },
-    {
-      title: "Build Frontend",
-      description: "React Project",
-      deadline: "2025-05-23",
-      teamMember: "Bob",
-      project: "Beta",
-      status: "Doing",
-    },
-    {
-      title: "API Integration",
-      description: "Connect backend",
-      deadline: "2025-05-14",
-      teamMember: "Bob",
-      project: "Beta",
-      status: "Doing",
-    },
+    title: "Loading Tasks...",
+    description: "",
+    dueDate: "",
+    teamMember: "",
+    project: "",
+    status: "Ej påbörjad",
+  }],);
 
-    {
-      title: "Write Tests",
-      description: "Unit tests",
-      deadline: "2025-05-10",
-      teamMember: "Alice",
-      project: "Alpha",
-      status: "Done",
-    },
-  ]);
+
+
+  //Fetch all tasks 
+
+  useEffect (()=> {
+    const fetchTasks = async () => {
+      try {
+        const response = await axios.get("http://localhost:5069/tasks");
+        setTasks(response.data);
+      } catch (error) {
+        console.error("Error fetching tasks:", error);
+      }
+    };
+
+    fetchTasks();
+  }, []);
+
+
 
   const [filter, setFilter] = useState({
     member: "",
@@ -98,7 +66,7 @@ export default function ToDo() {
           <Link to="/dashboard">PlanIT</Link> / <Link to="/task">Task</Link>
         </h3>
 
-      
+        <Modal onAddTask={handleNewTask} />
       </header>
 
 
@@ -179,19 +147,19 @@ export default function ToDo() {
 
         <div style={{ display: "flex", marginTop: "20px" }}>
           <CardContainer
-            title="To Do"
-            numberOfTasks={filteredTasks.filter((t) => t.status === "To Do").length}
-            tasks={filteredTasks.filter((t) => t.status === "To Do")}
+            title="Ej påbörjad"
+            numberOfTasks={filteredTasks.filter((t) => t.status === "Ej påbörjad").length}
+            tasks={filteredTasks.filter((t) => t.status === "Ej påbörjad")}
           />
           <CardContainer
-            title="Doing"
-            numberOfTasks={filteredTasks.filter((t) => t.status === "Doing").length}
-            tasks={filteredTasks.filter((t) => t.status === "Doing")}
+            title="Påbörjad"
+            numberOfTasks={filteredTasks.filter((t) => t.status === "Påbörjad").length}
+            tasks={filteredTasks.filter((t) => t.status === "Påbörjad")}
           />
           <CardContainer
-            title="Done"
-            numberOfTasks={filteredTasks.filter((t) => t.status === "Done").length}
-            tasks={filteredTasks.filter((t) => t.status === "Done")}
+            title="Avslutad"
+            numberOfTasks={filteredTasks.filter((t) => t.status === "Avslutad").length}
+            tasks={filteredTasks.filter((t) => t.status === "Avslutad")}
           />
         </div>
 

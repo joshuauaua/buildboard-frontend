@@ -49,7 +49,7 @@ export default function Card({ task }) {
       </header>
 
       <main className="card-main">
-      <small className="task-deadline">{formatDate(task.deadline)}</small>
+      <small className="task-deadline">{formatDate(task.dueDate)}</small>
       <small>  •  </small>
       <small> <img src="./src/assets/user.png" className="userProfilePicture"/> {showUser(task.teamMember)}</small><br />
       </main>

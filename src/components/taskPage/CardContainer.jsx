@@ -19,7 +19,7 @@ export default function CardContainer({ title, tasks, numberOfTasks }) {
       <header className="card-container-header">
       <h3>{title}</h3>
       <h3 className="number-of-tasks">{numberOfTasks} TASKS</h3>
-       <Modal onAddTask={handleNewTask} />
+      
       </header>
 
       {tasks.map((task, index) => (
