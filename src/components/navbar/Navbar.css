@@ -7,8 +7,8 @@ body {
 }
 
 .navbar {
-  background-color: rgb(72, 0, 255);
-  color: white;
+  background-color: rgb(255, 255, 255);
+  color: rgb(255, 254, 254);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,7 +19,7 @@ body {
 .site-title {
   font-size: 24px;
   font-weight: bold;
-  color: white;
+  color: rgb(92, 84, 255);
 }
 
 .navbar ul {
@@ -34,7 +34,7 @@ body {
   display: inline;
   margin-right: 60px;
   font-size: 22px;
-  color: white;
+  color:rgb(92, 84, 255);
   cursor: pointer;
 }
 
@@ -48,7 +48,7 @@ a {
 }
 
 .navbar li:hover {
-  background-color: rgba(0, 13, 152, 0.276);
+  background-color: rgba(236, 236, 236, 0.276);
 }
 
 .hamburger {
