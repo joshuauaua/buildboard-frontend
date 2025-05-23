@@ -82,14 +82,27 @@ const sampleData = [
     description: "Backend engineer with a passion for databases.",
     team: "Project Falcon",
   }
-
-
-
 ];
+
+
+
+// Function to get the first letter of a name and convert it to uppercase
+function FirstLetter({ name }) {
+  const firstLetter = name.charAt(0).toUpperCase();
+  return (
+    <div className="avatar-circle">
+      <span>{firstLetter}</span>
+    </div>
+  );
+}
+
+
 function ProfileCard({ member, onView }) {
   return (
     <div className="card">
-      <img className="profile-picture" src= "./src/assets/user.png" alt={member.name} />
+      <div className="avatar-circle">
+      <span><FirstLetter name={member.name} /></span>
+      </div>
       <h2>{member.name}</h2>
       <p><strong>Role:</strong> {member.role}</p>
       <p><strong>Location:</strong> {member.location}</p>
@@ -109,6 +122,7 @@ function Filters({ filters, setFilters, allMembers }) {
   };
 
   return (
+
     <div className="filters">
       <input
         type="text"
@@ -116,18 +130,25 @@ function Filters({ filters, setFilters, allMembers }) {
         value={filters.search}
         onChange={(e) => setFilters({ ...filters, search: e.target.value })}
       />
+
+
+
       <select onChange={handleChange("team")} value={filters.team}>
         <option value="">All Teams</option>
         {teams.map((t) => (
           <option key={t} value={t}>{t}</option>
         ))}
       </select>
+      
+      
       <select onChange={handleChange("role")} value={filters.role}>
         <option value="">All Roles</option>
         {roles.map((r) => (
           <option key={r} value={r}>{r}</option>
         ))}
       </select>
+      
+      
       <select onChange={handleChange("location")} value={filters.location}>
         <option value="">All Locations</option>
         {locations.map((l) => (
@@ -214,8 +235,7 @@ export default function TeamDirectory() {
 
           
           <button className="close-btn" onClick={() => setSelectedMember(null)}>X</button>
-          
-            <img className="profile-picture" src= "./src/assets/user.png" alt={selectedMember.name} />
+
             <h2>{selectedMember.name}</h2>
             <p><strong>Role:</strong> {selectedMember.role}</p>
             <p><strong>Location:</strong> {selectedMember.location}</p>

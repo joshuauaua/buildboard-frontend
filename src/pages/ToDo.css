@@ -41,6 +41,7 @@
 .main-header{
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-bottom: 40px;
 }
 
@@ -118,6 +119,55 @@
   background-color: #1d4ed8;
 }
 
+
+.cancel-btn{
+  background-color: #aeb1b8;
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cancel-btn:hover{
+  background-color: #aeb1b8;
+
+}
+
+.modal-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-top: 1px solid #e0e0e0;
+}
+
+
+
+.filter-btn {
+  background-color: #aeb1b8;
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-btn:hover {
+  background-color: #aeb1b8;
+}
 
 .main-header{
   display: flex;

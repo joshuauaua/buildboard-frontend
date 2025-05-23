@@ -81,12 +81,15 @@ export default function Modal({ onAddTask }) {
 
   return (
     <>
+
+
+    
       <button onClick={() => setIsOpen(true)} className="todo-btn">
         <img src="/src/assets/add.svg" alt="New Task" />    New Task 
       </button>
 
       {isOpen && (
-        <div className="modal-overlay">
+        <div className="modal-container">
           <div className="modal-content">
             <button
               type="button"
@@ -140,9 +143,18 @@ export default function Modal({ onAddTask }) {
                 />
               </div>
 
-              <div style={{ marginTop: "10px" }}>
+    
+
+              <div className="modal-footer" style={{ marginTop: "10px" }}>
+                <button type="button" 
+                onClick={() => setIsOpen(false)}
+                className="cancel-btn"
+                >Cancel</button>
                 <button type="submit" className="todo-btn">Add Task</button>
               </div>
+
+
+
             </form>
           </div>
         </div>

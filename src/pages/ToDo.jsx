@@ -90,7 +90,6 @@ export default function ToDo() {
         </div>
         
         <div className="main-header-right">
-          <div className="main-header-buttons"> 
           <Modal onAddTask={handleNewTask} />
 
           <div
@@ -99,7 +98,7 @@ export default function ToDo() {
           >
             <button
               onClick={() => setIsFilterOpen((prev) => !prev)}
-              className="todo-btn"
+              className="filter-btn"
             >
               <img src="/src/assets/filter.svg" alt="Filter" /> Filtrera
             </button>
@@ -185,7 +184,6 @@ export default function ToDo() {
               </div>
             )}
             </div>
-          </div>
           </div>
         </div>
 

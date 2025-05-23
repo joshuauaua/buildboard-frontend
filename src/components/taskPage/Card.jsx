@@ -3,7 +3,7 @@ import "./Card.css";
 
 
 function showUser(teamMember) {
-  const name = new String(teamMember);
+  const name = String(teamMember);
   return name.charAt(0).toUpperCase() + name.slice(1);
 }
 
