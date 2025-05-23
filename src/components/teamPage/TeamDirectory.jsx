@@ -195,7 +195,13 @@ export default function TeamDirectory() {
       
       
       <header className="header-directory">
+      
+      <div className="header-title">
       <h2>Directory</h2>
+      <p>Find and connect with Colleagues</p>
+      </div>
+
+      <div className="header-body">
       <Filters filters={filters} setFilters={setFilters} allMembers={sampleData} />
 
       <div className="sort-control">
@@ -205,6 +211,7 @@ export default function TeamDirectory() {
           <option value="role">Role</option>
           <option value="location">Location</option>
         </select>
+      </div>
       </div>
       </header>
 

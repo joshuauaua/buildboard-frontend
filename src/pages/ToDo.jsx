@@ -25,7 +25,7 @@ export default function ToDo() {
 
   const [tasks, setTasks] = useState([
     {
-      title: "Loading Tasks...",
+      title: "",
       description: "",
       dueDate: "",
       teamMember: "",
