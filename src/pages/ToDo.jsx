@@ -1,26 +1,42 @@
 import "./ToDo.css";
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import CardContainer from "../components/taskPage/CardContainer";
 import Modal from "../components/taskPage/Modal";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function ToDo() {
-  const [tasks, setTasks] = useState([{
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const filterRef = useRef(null);
 
-    title: "Loading Tasks...",
-    description: "",
-    dueDate: "",
-    teamMember: "",
-    project: "",
-    status: "Ej påbörjad",
-  }],);
+  // Close popup on outside click
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (filterRef.current && !filterRef.current.contains(event.target)) {
+        setIsFilterOpen(false);
+      }
+    };
 
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
+  const [tasks, setTasks] = useState([
+    {
+      title: "Loading Tasks...",
+      description: "",
+      dueDate: "",
+      teamMember: "",
+      project: "",
+      status: "Ej påbörjad",
+    },
+  ]);
 
-  //Fetch all tasks 
+  //Fetch all tasks
 
-  useEffect (()=> {
+  useEffect(() => {
     const fetchTasks = async () => {
       try {
         const response = await axios.get("http://localhost:5069/tasks");
@@ -32,8 +48,6 @@ export default function ToDo() {
 
     fetchTasks();
   }, []);
-
-
 
   const [filter, setFilter] = useState({
     member: "",
@@ -60,113 +74,146 @@ export default function ToDo() {
 
   return (
     <div>
-
-      <h1>TEST SAMI</h1>
       <header className="header-content-top">
         <h1 className="header-title">Task</h1>
         <h3 className="header-subtitle">
           <Link to="/dashboard">PlanIT</Link> / <Link to="/task">Task</Link>
         </h3>
-
-        <Modal onAddTask={handleNewTask} />
       </header>
 
-
-        {/* Filter UI */}
-
-        <div className="filter-dropdown">
-        <label htmlFor="filterType">Filter:</label>
-        <select
-          id="filterType"
-          value={
-            filter.member
-              ? `member:${filter.member}`
-              : filter.project
-              ? `project:${filter.project}`
-              : filter.deadline
-              ? `deadline:${filter.deadline}`
-              : ""
-          }
-          onChange={(e) => {
-            const [type, value] = e.target.value.split(":");
-
-            if (!type || !value) {
-              // Reset all filters
-              setFilter({ member: "", project: "", deadline: "" });
-              return;
-            }
-
-            // Reset other filters when one is chosen
-            setFilter({
-              member: type === "member" ? value : "",
-              project: type === "project" ? value : "",
-              deadline: type === "deadline" ? value : "",
-            });
-          }}
-        >
-          <option value="">All Tasks</option>
-
-          <optgroup label="By Member">
-            {uniqueMembers.map((m) => (
-              <option key={`member-${m}`} value={`member:${m}`}>
-                {m}
-              </option>
-            ))}
-          </optgroup>
-
-          <optgroup label="By Project">
-            {uniqueProjects.map((p) => (
-              <option key={`project-${p}`} value={`project:${p}`}>
-                {p}
-              </option>
-            ))}
-          </optgroup>
-
-          <optgroup label="By Deadline">
-            {uniqueDeadlines.map((d) => (
-              <option key={`deadline-${d}`} value={`deadline:${d}`}>
-                {new Date(d).toLocaleDateString()}
-              </option>
-            ))}
-          </optgroup>
-        </select>
-
-        {/* Clear Filters Button */}
-        <button
-          onClick={() => setFilter({ member: "", project: "", deadline: "" })}
-          style={{ marginLeft: "1rem" }}
-        >
-          Clear Filters
-        </button>
-      </div>
-      
-      
-
-      {/* Task Columns */}
       <main className="main-content">
 
-        <h2 className="main-title">Task Board</h2>
+        <div className="main-header"> 
+        <div className="main-header-left">
+          <h2 className="main-title">Task Board</h2>
+          <p className="main-subtitle">Add your tasks and manage them</p>
+        </div>
+        
+        <div className="main-header-right">
+          <div className="main-header-buttons"> 
+          <Modal onAddTask={handleNewTask} />
 
-        <div style={{ display: "flex", marginTop: "20px" }}>
-          <CardContainer
-            title="Ej påbörjad"
-            numberOfTasks={filteredTasks.filter((t) => t.status === "Ej påbörjad").length}
-            tasks={filteredTasks.filter((t) => t.status === "Ej påbörjad")}
-          />
-          <CardContainer
-            title="Påbörjad"
-            numberOfTasks={filteredTasks.filter((t) => t.status === "Påbörjad").length}
-            tasks={filteredTasks.filter((t) => t.status === "Påbörjad")}
-          />
-          <CardContainer
-            title="Avslutad"
-            numberOfTasks={filteredTasks.filter((t) => t.status === "Avslutad").length}
-            tasks={filteredTasks.filter((t) => t.status === "Avslutad")}
-          />
+          <div
+            style={{ position: "relative", display: "inline-block" }}
+            ref={filterRef}
+          >
+            <button
+              onClick={() => setIsFilterOpen((prev) => !prev)}
+              className="todo-btn"
+            >
+              <img src="/src/assets/filter.svg" alt="Filter" /> Filtrera
+            </button>
+
+            {isFilterOpen && (
+              <div
+                style={{
+                  position: "absolute",
+                  top: "100%",
+                  left: 0,
+                  background: "white",
+                  border: "1px solid #ccc",
+                  padding: "1rem",
+                  zIndex: 999,
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+                  minWidth: "200px",
+                }}
+              >
+                <label htmlFor="filterType">Filter by:</label>
+                <select
+                  id="filterType"
+                  value={
+                    filter.member
+                      ? `member:${filter.member}`
+                      : filter.project
+                      ? `project:${filter.project}`
+                      : filter.deadline
+                      ? `deadline:${filter.deadline}`
+                      : ""
+                  }
+                  onChange={(e) => {
+                    const [type, value] = e.target.value.split(":");
+
+                    if (!type || !value) {
+                      setFilter({ member: "", project: "", deadline: "" });
+                      return;
+                    }
+
+                    setFilter({
+                      member: type === "member" ? value : "",
+                      project: type === "project" ? value : "",
+                      deadline: type === "deadline" ? value : "",
+                    });
+                  }}
+                  style={{ width: "100%", marginBottom: "0.5rem" }}
+                >
+                  <option value="">All Tasks</option>
+
+                  <optgroup label="By Member">
+                    {uniqueMembers.map((m) => (
+                      <option key={`member-${m}`} value={`member:${m}`}>
+                        {m}
+                      </option>
+                    ))}
+                  </optgroup>
+
+                  <optgroup label="By Project">
+                    {uniqueProjects.map((p) => (
+                      <option key={`project-${p}`} value={`project:${p}`}>
+                        {p}
+                      </option>
+                    ))}
+                  </optgroup>
+
+                  <optgroup label="By Deadline">
+                    {uniqueDeadlines.map((d) => (
+                      <option key={`deadline-${d}`} value={`deadline:${d}`}>
+                        {new Date(d).toLocaleDateString()}
+                      </option>
+                    ))}
+                  </optgroup>
+                </select>
+
+                <button
+                  onClick={() => {
+                    setFilter({ member: "", project: "", deadline: "" });
+                    setIsFilterOpen(false);
+                  }}
+                  style={{ width: "100%" }}
+                >
+                  Clear Filters
+                </button>
+              </div>
+            )}
+            </div>
+          </div>
+          </div>
         </div>
 
 
 
+        <div style={{ display: "flex", marginTop: "20px" }}>
+          <CardContainer
+            title="Ej påbörjad"
+            numberOfTasks={
+              filteredTasks.filter((t) => t.status === "Ej påbörjad").length
+            }
+            tasks={filteredTasks.filter((t) => t.status === "Ej påbörjad")}
+          />
+          <CardContainer
+            title="Påbörjad"
+            numberOfTasks={
+              filteredTasks.filter((t) => t.status === "Påbörjad").length
+            }
+            tasks={filteredTasks.filter((t) => t.status === "Påbörjad")}
+          />
+          <CardContainer
+            title="Avslutad"
+            numberOfTasks={
+              filteredTasks.filter((t) => t.status === "Avslutad").length
+            }
+            tasks={filteredTasks.filter((t) => t.status === "Avslutad")}
+          />
+        </div>
       </main>
     </div>
   );

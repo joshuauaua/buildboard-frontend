@@ -1,7 +1,51 @@
+import axios from "axios";
+import "./Modal.css";
+import { useState, useEffect } from "react";
 
-import axios from 'axios';
-import './Modal.css'
-import { useState } from "react";
+
+
+//Dropdown of users
+function UserDropdown({ value, onChange }) {
+  const [usernames, setUsernames] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchUsernames() {
+      try {
+        const response = await fetch("/api/users");
+        const data = await response.json();
+        setUsernames(data.usernames);
+      } catch (error) {
+        console.error("Error fetching usernames:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchUsernames();
+  }, []);
+
+  return (
+    <div>
+      <label htmlFor="username">Assigned To:</label>
+      <br />
+      <select
+        id="username"
+        name="teamMember"
+        value={value}
+        onChange={onChange}
+        disabled={loading}
+      >
+        <option value="">-- Choose a user --</option>
+        {usernames.map((username) => (
+          <option key={username} value={username}>
+            {username}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
 
 export default function Modal({ onAddTask }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,63 +61,37 @@ export default function Modal({ onAddTask }) {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onAddTask(formData); // pass task up
+    onAddTask(formData); // pass to parent
     setIsOpen(false);
-    const taskUsername = formData.teamMember;
-    const { teamMember, ...newTask } = formData;
-    (async () => {
-      try {
-        const response = await axios.post(`http://localhost:5069/tasks`, newTask);
-        console.log("Task added successfully:", response.data);
-      } catch (error) {
-        console.error("Error adding task:", error);
-      }
-    })();  
+
+    const { teamMember, ...newTask } = formData; // omit teamMember if not needed
+
+    try {
+      const response = await axios.post(`http://localhost:5069/tasks`, newTask);
+      console.log("Task added successfully:", response.data);
+    } catch (error) {
+      console.error("Error adding task:", error);
+    }
   };
 
   return (
     <>
-      <button onClick={() => setIsOpen(true)} className="custom-btn btn-1">+</button>
+      <button onClick={() => setIsOpen(true)} className="todo-btn">
+        <img src="/src/assets/add.svg" alt="New Task" />    New Task 
+      </button>
 
       {isOpen && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            zIndex: 1000,
-          }}
-        >
-          <div
-            style={{
-              backgroundColor: "white",
-              padding: "1rem",
-              width: "300px",
-              position: "relative"
-            }}
-          >
+        <div className="modal-overlay">
+          <div className="modal-content">
             <button
               type="button"
               onClick={() => setIsOpen(false)}
-              style={{
-                position: "absolute",
-                top: 5,
-                right: 10,
-                border: "none",
-                background: "none",
-                fontSize: "18px",
-              }}
+              className="modal-close"
             >
               ×
             </button>
@@ -82,29 +100,48 @@ export default function Modal({ onAddTask }) {
 
             <form onSubmit={handleSubmit}>
               <div>
-                <label>Title:</label><br />
-                <input type="text" name="title" value={formData.title} onChange={handleChange} required />
+                <label>Title:</label>
+                <br />
+                <input
+                  type="text"
+                  name="title"
+                  value={formData.title}
+                  onChange={handleChange}
+                  required
+                />
               </div>
 
               <div>
-                <label>Due Date:</label><br />
-                <input type="date" name="dueDate" value={formData.dueDate} onChange={handleChange} required />
+                <label>Due Date:</label>
+                <br />
+                <input
+                  type="date"
+                  name="dueDate"
+                  value={formData.dueDate}
+                  onChange={handleChange}
+                  required
+                />
               </div>
 
-              <div>
-                <label>Assigned To:</label><br />
-                <input type="text" name="teamMember" value={formData.teamMember} onChange={handleChange} required />
-              </div>
+              <UserDropdown
+                value={formData.teamMember}
+                onChange={handleChange}
+              />
 
               <div>
-                <label>Label:</label><br />
-                <input type="text" name="project" value={formData.project} onChange={handleChange} required />
+                <label>Project:</label>
+                <br />
+                <input
+                  type="text"
+                  name="project"
+                  value={formData.project}
+                  onChange={handleChange}
+                  required
+                />
               </div>
 
               <div style={{ marginTop: "10px" }}>
-                <button type="submit">Add Task</button>
-
-
+                <button type="submit" className="todo-btn">Add Task</button>
               </div>
             </form>
           </div>

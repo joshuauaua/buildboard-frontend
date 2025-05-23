@@ -21,11 +21,11 @@ export default function Card({ task }) {
 
   const getStatusColor = (status) => {
     switch (status) {
-      case "To Do":
+      case "Påbörjad":
         return "lightcoral"; 
-      case "Doing":
+      case "Ej påbörjad":
         return "khaki"; 
-      case "Done":
+      case "Avslutad":
         return "lightgreen"; 
       default:
         return "white";

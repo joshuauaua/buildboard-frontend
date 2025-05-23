@@ -2,7 +2,7 @@
 
 .card-container-header{
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-columns: 1fr 2fr;
   justify-content: space-between;
   align-items: center;
   padding-left: 20px;
@@ -16,3 +16,5 @@
   font-weight: light;
   color: #bcbcbc;
 }
+
+
