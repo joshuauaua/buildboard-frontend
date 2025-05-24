@@ -55,7 +55,7 @@
   margin-right: 15px;
 }
 
-.follow {
+.connect {
   border: none;
   border-radius: 25px;
   background-color: #0f1113;
@@ -80,6 +80,6 @@
   border-radius: 0px 0px 15px 15px;
 }
 
-.follow:hover {
+.connect:hover {
   background-color: #2c3136;
 }

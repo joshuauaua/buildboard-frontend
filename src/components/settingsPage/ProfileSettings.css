@@ -21,7 +21,7 @@
 }
 
 .avatar-section {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   margin: 24px 0;
 }

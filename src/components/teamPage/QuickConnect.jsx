@@ -1,4 +1,5 @@
 import "/src/components/teamPage/QuickConnect.css";
+import { Link } from "react-router-dom";
 
 export default function QuickConnect( ) {
   return (
@@ -10,9 +11,9 @@ export default function QuickConnect( ) {
             <div className="image"></div>
             <div className="user__content">
               <div className="text">
-                <span className="name">Name</span>
+                <span className="name">Member Name</span>
               </div>
-              <button className="follow">Connect</button>
+              <button className="connect">Connect</button>
             </div>
           </div>
           <div className="user">
@@ -21,7 +22,7 @@ export default function QuickConnect( ) {
               <div className="text">
                 <span className="name">Name</span>
               </div>
-              <button className="follow">Connect</button>
+              <button className="connect">Connect</button>
             </div>
           </div>
           <div className="user">
@@ -30,13 +31,14 @@ export default function QuickConnect( ) {
               <div className="text">
                 <span className="name">Name</span>
               </div>
-              <button className="follow">Connect</button>
+              <button className="connect">Connect</button>
             </div>
           </div>
         </div>
-        <a className="more" href="#">
+
+        <Link to ="/team" className="more">
           See more
-        </a>
+        </Link>
       </div>
 
 

@@ -85,7 +85,7 @@ export default function Modal({ onAddTask }) {
 
     
       <button onClick={() => setIsOpen(true)} className="todo-btn">
-        <img src="/src/assets/add.svg" alt="New Task" />    New Task 
+        <img src="/src/assets/add.svg" alt="New Task" /> New Task 
       </button>
 
       {isOpen && (
@@ -99,7 +99,7 @@ export default function Modal({ onAddTask }) {
               ×
             </button>
 
-            <h2>Add Task</h2>
+            <h2 className="modal-title">Add Task</h2>
 
             <form onSubmit={handleSubmit}>
               <div>

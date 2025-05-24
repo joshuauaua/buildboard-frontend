@@ -1,12 +1,11 @@
 import React from "react";
-import { LogOut } from "lucide-react";
-import "./SettingsHeader.css";
+import "./CalendarHeader.css";
 
-const SettingsHeader = () => {
+export default function CalendarHeader(){
   return (
     <header className="settings-header">
       <div className="settings-header-title">
-        <h1 className="settings-title">Settings</h1>
+        <h1 className="settings-title">Calendar</h1>
         <p className="settings-subtitle">Customize your experience</p>
       </div>
       
@@ -14,4 +13,3 @@ const SettingsHeader = () => {
   );
 };
 
-export default SettingsHeader;

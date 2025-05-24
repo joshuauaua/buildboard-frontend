@@ -2,7 +2,6 @@
 import "./Team.css";
 import TeamDirectory from "../components/teamPage/TeamDirectory";
 import { Link } from "react-router-dom";
-import QuickConnect from "../components/teamPage/QuickConnect";
 
 
 export default function Team(){
@@ -19,7 +18,6 @@ export default function Team(){
 
     <TeamDirectory/>
 
-    <QuickConnect/>
 
 
 

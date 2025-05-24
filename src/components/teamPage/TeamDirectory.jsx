@@ -81,6 +81,166 @@ const sampleData = [
     location: "Berlin",
     description: "Backend engineer with a passion for databases.",
     team: "Project Falcon",
+  },
+  {
+    id: 11,
+    name: "Nora Lindgren",
+    role: "Product Owner",
+    location: "Stockholm",
+    description: "Coordinates cross-functional teams and defines product vision.",
+    team: "Alpha",
+  },
+  {
+    id: 12,
+    name: "Leo Yamamoto",
+    role: "Developer",
+    location: "Tokyo",
+    description: "Specializes in TypeScript and performance optimization.",
+    team: "Project Orion",
+  },
+  {
+    id: 13,
+    name: "Fatima El-Sayed",
+    role: "Data Scientist",
+    location: "Copenhagen",
+    description: "Analyzes product metrics and builds ML models.",
+    team: "Beta",
+  },
+  {
+    id: 14,
+    name: "Carlos Mendes",
+    role: "DevOps Engineer",
+    location: "Lisbon",
+    description: "Maintains CI/CD pipelines and cloud infrastructure.",
+    team: "Project Phoenix",
+  },
+  {
+    id: 15,
+    name: "Emily Zhang",
+    role: "Scrum Master",
+    location: "London",
+    description: "Facilitates agile ceremonies and removes team blockers.",
+    team: "Alpha",
+  },
+  {
+    id: 16,
+    name: "Tomislav Novak",
+    role: "Developer",
+    location: "Zagreb",
+    description: "Frontend engineer with Vue.js and animation experience.",
+    team: "Gamma",
+  },
+  {
+    id: 17,
+    name: "Sara D'Amico",
+    role: "Designer",
+    location: "Milan",
+    description: "Creates elegant UI mockups and branding materials.",
+    team: "Project Orion",
+  },
+  {
+    id: 18,
+    name: "Omar Yusuf",
+    role: "Developer",
+    location: "Cairo",
+    description: "Specialist in backend APIs and GraphQL.",
+    team: "Project Falcon",
+  },
+  {
+    id: 19,
+    name: "Mei Chen",
+    role: "Tester",
+    location: "Singapore",
+    description: "Automation tester focusing on Selenium and Cypress.",
+    team: "Project Phoenix",
+  },
+  {
+    id: 20,
+    name: "Ivan Petrov",
+    role: "Security Engineer",
+    location: "Prague",
+    description: "Conducts penetration testing and secures application layers.",
+    team: "Beta",
+  },
+  {
+    id: 21,
+    name: "Yasmine Ali",
+    role: "Developer",
+    location: "Dubai",
+    description: "Full-stack engineer with Next.js and MongoDB experience.",
+    team: "Gamma",
+  },
+  {
+    id: 22,
+    name: "Lucas Dubois",
+    role: "Business Analyst",
+    location: "Paris",
+    description: "Gathers stakeholder requirements and analyzes KPIs.",
+    team: "Alpha",
+  },
+  {
+    id: 23,
+    name: "Sofia Ivanova",
+    role: "QA Engineer",
+    location: "Moscow",
+    description: "Manual tester focused on mobile platforms.",
+    team: "Project Falcon",
+  },
+  {
+    id: 24,
+    name: "Haruto Sato",
+    role: "Developer",
+    location: "Osaka",
+    description: "Specialist in real-time applications and WebSockets.",
+    team: "Project Orion",
+  },
+  {
+    id: 25,
+    name: "Rebecca Kim",
+    role: "Marketing Manager",
+    location: "San Francisco",
+    description: "Drives product marketing and campaign strategy.",
+    team: "Gamma",
+  },
+  {
+    id: 26,
+    name: "David Cohen",
+    role: "Technical Writer",
+    location: "Toronto",
+    description: "Writes clear documentation and API references.",
+    team: "Beta",
+  },
+  {
+    id: 27,
+    name: "Lina Hoffman",
+    role: "Project Coordinator",
+    location: "Munich",
+    description: "Keeps projects on track and manages internal communications.",
+    team: "Alpha",
+  },
+  {
+    id: 28,
+    name: "Aliya Rahman",
+    role: "Developer",
+    location: "Jakarta",
+    description: "Backend engineer with a focus on microservices.",
+    team: "Project Phoenix",
+  },
+  {
+    id: 29,
+    name: "Daniel Okoye",
+    role: "Support Engineer",
+    location: "Lagos",
+    description: "Provides tier 2 support and manages tickets in Zendesk.",
+    team: "Beta",
+  },
+  {
+    id: 30,
+    name: "Isabella Rossi",
+    role: "Designer",
+    location: "Rome",
+    description: "Focuses on mobile-first responsive design.",
+    team: "Gamma",
   }
 ];
 
@@ -167,7 +327,7 @@ function paginate(data, page, perPage) {
 export default function TeamDirectory() {
   const [filters, setFilters] = useState({ team: "", role: "", location: "", search: "" });
   const [page, setPage] = useState(1);
-  const [perPage, setPerPage] = useState(5);
+  const [perPage, setPerPage] = useState(6);
   const [sort, setSort] = useState("name");
   const [selectedMember, setSelectedMember] = useState(null);
 
@@ -204,14 +364,6 @@ export default function TeamDirectory() {
       <div className="header-body">
       <Filters filters={filters} setFilters={setFilters} allMembers={sampleData} />
 
-      <div className="sort-control">
-        <label>Sort by: </label>
-        <select value={sort} onChange={(e) => setSort(e.target.value)}>
-          <option value="name">Name (A-Z)</option>
-          <option value="role">Role</option>
-          <option value="location">Location</option>
-        </select>
-      </div>
       </div>
       </header>
 
@@ -230,7 +382,7 @@ export default function TeamDirectory() {
       <div className="per-page">
         <label>Cards per page: </label>
         <select value={perPage} onChange={(e) => { setPerPage(Number(e.target.value)); setPage(1); }}>
-          {[5, 10, 20].map((n) => (
+          {[6, 12, 24].map((n) => (
             <option key={n} value={n}>{n}</option>
           ))}
         </select>

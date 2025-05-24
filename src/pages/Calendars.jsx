@@ -4,6 +4,7 @@ import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { myEventsList } from "../components/calendarPage/EventsList";
 import {Link} from "react-router-dom";
+import CalendarHeader from "../components/calendarPage/CalendarHeader";
 
 const localizer = momentLocalizer(moment);
 
@@ -25,11 +26,8 @@ export default function Calendars() {
   return (
 
     <>
-    <header className="header-content-top">
-      <h1 className="header-title">Calendar</h1>
-      <h3 className="header-subtitle"><Link to ="/">PlanIT</Link> / <Link to ="/calendar">Calendar</Link></h3>
-    </header>
 
+    <CalendarHeader />
 
 
     <main  style={{ height: 800, padding: "2rem" }}>
