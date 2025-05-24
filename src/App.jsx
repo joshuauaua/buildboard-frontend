@@ -1,6 +1,5 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import Footer from './components/Footer/Footer'
 import Navbar from './components/navbar/Navbar'
 import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
@@ -33,7 +32,6 @@ export default function  App() {
         <Route path="/about" element={<About/>}>/About</Route>  
   
       </Routes>
-      <Footer/>
     </BrowserRouter>
   )
 }

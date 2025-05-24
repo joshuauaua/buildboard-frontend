@@ -4,10 +4,14 @@ import CardContainer from "../components/taskPage/CardContainer";
 import Modal from "../components/taskPage/Modal";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import TaskHeader from "../components/taskPage/TaskHeader";
+import CustomSidebar from "../components/navbar/CustomSidebar";
 
 export default function ToDo() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const filterRef = useRef(null);
+
+const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   // Close popup on outside click
   useEffect(() => {
@@ -74,12 +78,11 @@ export default function ToDo() {
 
   return (
     <div>
-      <header className="header-content-top">
-        <h1 className="header-title">Task</h1>
-        <h3 className="header-subtitle">
-          <Link to="/dashboard">PlanIT</Link> / <Link to="/task">Task</Link>
-        </h3>
-      </header>
+
+      <TaskHeader />
+
+      <CustomSidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
+
 
       <main className="main-content">
 
