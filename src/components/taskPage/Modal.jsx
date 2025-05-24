@@ -51,10 +51,7 @@ function UserDropdown({ value, onChange }) {
   );
 }
 
-
-
-
- //Dropdown of projects
+  //Dropdown of projects
  function ProjectDropdown({ value, onChange }) {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -97,6 +94,15 @@ function UserDropdown({ value, onChange }) {
     </div>
   );
 }
+
+
+
+  
+  
+
+
+
+
 
 export default function Modal({ onAddTask }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -144,8 +150,16 @@ export default function Modal({ onAddTask }) {
       </button>
 
       {isOpen && (
+        
+        
         <div className="modal-container">
           <div className="modal-content">
+
+
+            <header className="modal-header">
+            
+            <h2 className="modal-title">Add Task</h2>
+
             <button
               type="button"
               onClick={() => setIsOpen(false)}
@@ -154,7 +168,9 @@ export default function Modal({ onAddTask }) {
               ×
             </button>
 
-            <h2>Add Task</h2>
+            </header>
+
+            
 
             <form onSubmit={handleSubmit}>
               <div>
@@ -187,21 +203,25 @@ export default function Modal({ onAddTask }) {
               />
 
               <div>
+
               <ProjectDropdown
                 value={formData.ProjectID_FK}
                 onChange={handleChange}
               />
                 <br />
-                <input
-                  type="text"
-                  name="GoalID_FK"
-                  value={formData.GoalID_FK}
-                  onChange={handleChange}
-                  required
-                />
               </div>
 
-    
+              <div>
+                <label for="status">Status</label>
+                <br />
+                
+                <select id="status" name="Status" value={formData.Status} onChange={handleChange} required>
+                <option value="Ej påbörjad">Ej påbörjad</option>
+                <option value="Påbörjad">Pågående</option>
+                <option value="Avslutad">Slutförd</option>
+                </select>
+              </div>
+
 
               <div className="modal-footer" style={{ marginTop: "10px" }}>
                 <button type="button" 

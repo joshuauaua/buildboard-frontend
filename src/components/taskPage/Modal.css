@@ -1,23 +1,40 @@
 .modal-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  
-  justify-content: center;
-  align-items: center;
   display: grid;
-  grid-template-columns: 4fr, 4fr;
-  }
+  position: fixed;
+  background-color: white;
+  } 
 
 .modal-content {
+  position: fixed;
+  top: 80%;
+  left: 85%;
+  transform: translate(-50%, -50%);
   background-color: white;
-  padding: 8rem;
-  width: 600px;
-  position: relative;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  z-index: 1000;
 }
+
+
+.modal-header  {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .modal-close {
   position: absolute;
@@ -63,7 +80,7 @@
 }
 
 .cancel-btn:hover{
-  background-color: #aeb1b8;
+  background-color: #a3a3a3;
 
 }
 
