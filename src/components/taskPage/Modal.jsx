@@ -6,15 +6,16 @@ import { useState, useEffect } from "react";
 
 //Dropdown of users
 function UserDropdown({ value, onChange }) {
-  const [usernames, setUsernames] = useState([]);
+  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchUsernames() {
       try {
-        const response = await fetch("/api/users");
+        const response = await fetch("https://localhost:7007/Users");
         const data = await response.json();
-        setUsernames(data.usernames);
+        setUsers(data);
+        console.log(users);
       } catch (error) {
         console.error("Error fetching usernames:", error);
       } finally {
@@ -27,19 +28,19 @@ function UserDropdown({ value, onChange }) {
 
   return (
     <div>
-      <label htmlFor="username">Assigned To:</label>
+      <label htmlFor="user">Assigned To:</label>
       <br />
       <select
-        id="username"
-        name="teamMember"
+        id="user"
+        name="UserID_FK"
         value={value}
         onChange={onChange}
         disabled={loading}
       >
         <option value="">-- Choose a user --</option>
-        {usernames.map((username) => (
-          <option key={username} value={username}>
-            {username}
+        {users.map((user) => (
+          <option key={user.userID} value={user.userID}>
+            {user.username}
           </option>
         ))}
       </select>
@@ -51,12 +52,12 @@ export default function Modal({ onAddTask }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const [formData, setFormData] = useState({
-    title: "",
-    description: "",
-    dueDate: "",
-    teamMember: "",
-    project: "",
-    status: "Ej påbörjad", // default status
+    Title: "",
+    Description: "",
+    DueDate: "",
+    UserID_FK: "",
+    GoalID_FK: "",
+    Status: "Ej påbörjad", // default status
   });
 
   const handleChange = (e) => {
@@ -66,13 +67,17 @@ export default function Modal({ onAddTask }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    onAddTask(formData); // pass to parent
+    const taskParsed = {
+      ...formData,
+      UserID_FK: parseInt(formData.UserID_FK, 10),
+      GoalID_FK: parseInt(formData.GoalID_FK, 10)
+    }
+    onAddTask(taskParsed); // pass to parent
     setIsOpen(false);
-
-    const { teamMember, ...newTask } = formData; // omit teamMember if not needed
+    console.log("Submitting taskParsed:", taskParsed);
 
     try {
-      const response = await axios.post(`http://localhost:5069/tasks`, newTask);
+      const response = await axios.post(`https://localhost:7007/tasks`, taskParsed);
       console.log("Task added successfully:", response.data);
     } catch (error) {
       console.error("Error adding task:", error);
@@ -85,7 +90,7 @@ export default function Modal({ onAddTask }) {
 
     
       <button onClick={() => setIsOpen(true)} className="todo-btn">
-        <img src="/src/assets/add.svg" alt="New Task" /> New Task 
+        <img src="/src/assets/add.svg" alt="New Task" />    New Task 
       </button>
 
       {isOpen && (
@@ -99,7 +104,7 @@ export default function Modal({ onAddTask }) {
               ×
             </button>
 
-            <h2 className="modal-title">Add Task</h2>
+            <h2>Add Task</h2>
 
             <form onSubmit={handleSubmit}>
               <div>
@@ -107,8 +112,8 @@ export default function Modal({ onAddTask }) {
                 <br />
                 <input
                   type="text"
-                  name="title"
-                  value={formData.title}
+                  name="Title"
+                  value={formData.Title}
                   onChange={handleChange}
                   required
                 />
@@ -119,15 +124,15 @@ export default function Modal({ onAddTask }) {
                 <br />
                 <input
                   type="date"
-                  name="dueDate"
-                  value={formData.dueDate}
+                  name="DueDate"
+                  value={formData.DueDate}
                   onChange={handleChange}
                   required
                 />
               </div>
 
               <UserDropdown
-                value={formData.teamMember}
+                value={formData.UserID_FK}
                 onChange={handleChange}
               />
 
@@ -136,8 +141,8 @@ export default function Modal({ onAddTask }) {
                 <br />
                 <input
                   type="text"
-                  name="project"
-                  value={formData.project}
+                  name="GoalID_FK"
+                  value={formData.GoalID_FK}
                   onChange={handleChange}
                   required
                 />

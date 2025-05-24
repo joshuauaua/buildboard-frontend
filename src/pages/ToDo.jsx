@@ -28,7 +28,7 @@ export default function ToDo() {
       title: "",
       description: "",
       dueDate: "",
-      teamMember: "",
+      teamMembers: [],
       project: "",
       status: "Ej påbörjad",
     },
@@ -39,7 +39,7 @@ export default function ToDo() {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get("http://localhost:5069/tasks");
+        const response = await axios.get("https://localhost:7007/tasks");
         setTasks(response.data);
       } catch (error) {
         console.error("Error fetching tasks:", error);
@@ -57,7 +57,7 @@ export default function ToDo() {
 
   const filteredTasks = tasks.filter((task) => {
     return (
-      (!filter.member || task.teamMember === filter.member) &&
+      (!filter.member || task.teamMembers?.[0] === filter.member) &&
       (!filter.project || task.project === filter.project) &&
       (!filter.deadline || task.deadline === filter.deadline)
     );
@@ -67,7 +67,7 @@ export default function ToDo() {
     setTasks([...tasks, newTask]);
   };
 
-  const uniqueMembers = [...new Set(tasks.map((t) => t.teamMember))];
+  const uniqueMembers = [...new Set(tasks.map((t) => t.teamMembers?.[0]))];
   const uniqueProjects = [...new Set(tasks.map((t) => t.project))];
 
   const uniqueDeadlines = [...new Set(tasks.map((t) => t.deadline))];
