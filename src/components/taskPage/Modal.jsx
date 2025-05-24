@@ -12,7 +12,7 @@ function UserDropdown({ value, onChange }) {
   useEffect(() => {
     async function fetchUsernames() {
       try {
-        const response = await fetch("https://localhost:7007/Users");
+        const response = await fetch("http://localhost:7007/Users");
         const data = await response.json();
         setUsers(data);
         console.log(users);
@@ -26,6 +26,9 @@ function UserDropdown({ value, onChange }) {
     fetchUsernames();
   }, []);
 
+
+
+ 
   return (
     <div>
       <label htmlFor="user">Assigned To:</label>
@@ -41,6 +44,53 @@ function UserDropdown({ value, onChange }) {
         {users.map((user) => (
           <option key={user.userID} value={user.userID}>
             {user.username}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
+
+
+
+ //Dropdown of projects
+ function ProjectDropdown({ value, onChange }) {
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchProjects() {
+      try {
+        const response = await fetch("http://localhost:7007/Projects");
+        const data = await response.json();
+        setProjects(data);
+        console.log(projects);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchProjects();
+  }, []);
+
+  return (
+    <div>
+      <label htmlFor="project">Project:</label>
+      <br />
+      <select
+        id="project"
+        name="ProjectID_FK"
+        value={value}
+        onChange={onChange}
+        disabled={loading}
+      >
+        <option value="">-- Select a Project --</option>
+        {projects.map((project) => (
+          <option key={project.projectID} value={project.projectID}>
+            {project.name}
           </option>
         ))}
       </select>
@@ -77,7 +127,7 @@ export default function Modal({ onAddTask }) {
     console.log("Submitting taskParsed:", taskParsed);
 
     try {
-      const response = await axios.post(`https://localhost:7007/tasks`, taskParsed);
+      const response = await axios.post(`http://localhost:7007/tasks`, taskParsed);
       console.log("Task added successfully:", response.data);
     } catch (error) {
       console.error("Error adding task:", error);
@@ -137,7 +187,10 @@ export default function Modal({ onAddTask }) {
               />
 
               <div>
-                <label>Project:</label>
+              <ProjectDropdown
+                value={formData.ProjectID_FK}
+                onChange={handleChange}
+              />
                 <br />
                 <input
                   type="text"

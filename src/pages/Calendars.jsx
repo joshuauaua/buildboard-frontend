@@ -3,7 +3,6 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { myEventsList } from "../components/calendarPage/EventsList";
-import {Link} from "react-router-dom";
 import CalendarHeader from "../components/calendarPage/CalendarHeader";
 
 const localizer = momentLocalizer(moment);
