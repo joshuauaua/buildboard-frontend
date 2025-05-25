@@ -12,9 +12,8 @@ function UserDropdown({ value, onChange }) {
   useEffect(() => {
     async function fetchUsernames() {
       try {
-        const response = await fetch("http://localhost:7007/Users");
-        const data = await response.json();
-        setUsers(data);
+        const response = await axios.get("https://localhost:7007/Users");
+        setUsers(response.data);
         console.log(users);
       } catch (error) {
         console.error("Error fetching usernames:", error);
@@ -59,9 +58,8 @@ function UserDropdown({ value, onChange }) {
   useEffect(() => {
     async function fetchProjects() {
       try {
-        const response = await fetch("http://localhost:7007/Projects");
-        const data = await response.json();
-        setProjects(data);
+        const response = await axios.get("https://localhost:7007/api/projects");
+        setProjects(response.data);
         console.log(projects);
       } catch (error) {
         console.error("Error fetching projects:", error);
@@ -87,7 +85,7 @@ function UserDropdown({ value, onChange }) {
         <option value="">-- Select a Project --</option>
         {projects.map((project) => (
           <option key={project.projectID} value={project.projectID}>
-            {project.name}
+            {project.title}
           </option>
         ))}
       </select>
@@ -133,7 +131,7 @@ export default function Modal({ onAddTask }) {
     console.log("Submitting taskParsed:", taskParsed);
 
     try {
-      const response = await axios.post(`http://localhost:7007/tasks`, taskParsed);
+      const response = await axios.post(`https://localhost:7007/tasks`, taskParsed);
       console.log("Task added successfully:", response.data);
     } catch (error) {
       console.error("Error adding task:", error);
