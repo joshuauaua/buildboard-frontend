@@ -12,8 +12,8 @@ export default function NewNavbar( {userName = "Joshua"}){
     return(
 
    <nav className="navbar">
-      <div className="site-title">
-        <h1><Link to="/">PlanIt</Link></h1>
+      <div >
+        <h1 className="site-title"><Link to="/">PlanIt</Link></h1>
       </div>
 
       <div className="avatar-wrapper" onClick={() => setOpen(!open)}>
