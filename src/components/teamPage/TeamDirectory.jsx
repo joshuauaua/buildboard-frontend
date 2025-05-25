@@ -91,7 +91,7 @@ export default function TeamDirectory() {
   useState(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:7007/Users");
+        const response = await axios.get("http://localhost:5069/Users");
         setUsers(response.data);
       } catch (error) {
         console.error("Error fetching users:", error);

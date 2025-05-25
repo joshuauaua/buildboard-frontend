@@ -1,23 +1,34 @@
-import React from "react";
 import "./DashboardHeader.css";
+import { Link } from "react-router-dom";
+import React from "react";
 
-/**
- * @typedef {Object} DashboardHeaderProps
- * @property {string} formattedDate - The formatted date string.
- */
 
-const DashboardHeader = ({ formattedDate }) => {
+export default function DashboardHeader(){
+
+
+  const today = new Date();
+  const formattedDate = today.toLocaleDateString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+
+
+
   return (
-    <div className="dashboard-header">
-      <div>
-        <h1 className="dashboard-title">Dashboard</h1>
+    <div className="header-container">
+      <div className="header-title">
+        <h1 className="header-title">Dashboard</h1>
         <p className="dashboard-date">{formattedDate}</p>
       </div>
-      <div className="dashboard-actions">
-        <button className="dashboard-add-button">Add Task</button>
+      <div className="header-subtitle-right">
+      <h4>
+          <Link to="/dashboard" className="header-subtitle-right">BuildBoard</Link> / <Link to="/task" className="header-subtitle-right">Task</Link>
+        </h4>
       </div>
+      
     </div>
   );
-};
-
-export default DashboardHeader;
+}
+  

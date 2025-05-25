@@ -1,13 +1,25 @@
 import React from "react";
 import "./ProfileSettings.css";
+import { useState } from "react";
 
 const ProfileSettings = () => {
+
+
+
   return (
     <div className="profile-card">
       <div className="profile-header">
+        <div className="profile-title">
         <h2>Profile Information</h2>
         <p>Update your personal details</p>
+          </div>
       </div>
+
+
+
+
+
+
 
       <div className="avatar-section">
         <div className="avatar-circle">
@@ -18,6 +30,7 @@ const ProfileSettings = () => {
           <p>PNG or JPG. Max 2MB.</p>
         </div>
       </div>
+
 
       <div className="form-grid">
         <div className="form-group">

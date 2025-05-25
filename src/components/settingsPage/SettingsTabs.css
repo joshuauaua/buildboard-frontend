@@ -1,10 +1,14 @@
 .settings-tabs {
   display: flex;
-  background-color: #f3f4f6;
-  padding: 4px;
-  border-radius: 8px;
-  margin-left: 40px;
-  margin-top: 8px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(196, 196, 196, 0.581);
+  padding: 12px;
+  border-radius: 12px;
+  margin-left: 26.5rem;
+  margin-top: 3rem;
+  margin-bottom: 0;
+  max-width: 10%
 }
 
 .tab-button {

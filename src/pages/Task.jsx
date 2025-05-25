@@ -2,7 +2,6 @@ import "./Task.css";
 import { useState, useRef, useEffect } from "react";
 import CardContainer from "../components/taskPage/CardContainer";
 import Modal from "../components/taskPage/Modal";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import TaskHeader from "../components/taskPage/TaskHeader";
 import CustomSidebar from "../components/navbar/CustomSidebar";
@@ -44,7 +43,7 @@ const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get("https://localhost:7007/tasks");
+        const response = await axios.get("http://localhost:5069/tasks");
         setTasks(response.data);
       } catch (error) {
         console.error("Error fetching tasks:", error);
@@ -99,6 +98,10 @@ const [isSidebarOpen, setIsSidebarOpen] = useState(true);
         
         <div className="main-header-right">
           <Modal onAddTask={handleNewTask} />
+          <br />
+
+          
+          {/* Filter Button */}
 
           <div
             style={{ position: "relative", display: "inline-block" }}

@@ -6,6 +6,7 @@
   max-width: 800px;
   margin: 40px auto;
   font-family: 'Segoe UI', sans-serif;
+  margin-top: 0;
 }
 
 .profile-header h2 {

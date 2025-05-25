@@ -5,6 +5,7 @@ import { QuickShortcuts } from "./QuickShortcuts";
 import { TeamPulse } from "./TeamPulse";
 import { Button } from "@/components/ui/button";
 import "./Dashboard.css";
+import DashboardHeader from "./DashboardHeader";
 
 const Dashboard = () => {
   const today = new Date();
@@ -16,7 +17,11 @@ const Dashboard = () => {
   });
 
   return (
+
+    <>
+
     <div className="dashboard-container">
+
       <div className="dashboard-header">
         <div>
           <h1 className="dashboard-title">Dashboard</h1>
@@ -35,6 +40,7 @@ const Dashboard = () => {
       <QuickShortcuts />
       <TeamPulse />
     </div>
+    </>
   );
 };
 

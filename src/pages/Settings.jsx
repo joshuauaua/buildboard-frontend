@@ -5,8 +5,6 @@ import SettingsHeader from "../components/settingsPage/SettingsHeader";
 import AccountSettings from "../components/settingsPage/AccountSettings";
 import SettingsTabs from "../components/settingsPage/SettingsTabs";
 import Navbar from "../components/navbar/Navbar";
-
-
 import CustomSidebar from "../components/navbar/CustomSidebar";
 
 const Settings = () => {

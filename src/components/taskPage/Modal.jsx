@@ -12,7 +12,7 @@ function UserDropdown({ value, onChange }) {
   useEffect(() => {
     async function fetchUsernames() {
       try {
-        const response = await axios.get("https://localhost:7007/Users");
+        const response = await axios.get("http://localhost:5069/Users");
         setUsers(response.data);
         console.log(users);
       } catch (error) {
@@ -24,22 +24,20 @@ function UserDropdown({ value, onChange }) {
 
     fetchUsernames();
   }, []);
-
-
-
  
   return (
     <div>
-      <label htmlFor="user">Assigned To:</label>
+      <label htmlFor="user" className="form-label">Tilldelad till</label>
       <br />
       <select
         id="user"
         name="UserID_FK"
         value={value}
         onChange={onChange}
+        className="form-input"
         disabled={loading}
       >
-        <option value="">-- Choose a user --</option>
+        <option value=""  >-- Välj en användare --</option>
         {users.map((user) => (
           <option key={user.userID} value={user.userID}>
             {user.username}
@@ -58,7 +56,7 @@ function UserDropdown({ value, onChange }) {
   useEffect(() => {
     async function fetchProjects() {
       try {
-        const response = await axios.get("https://localhost:7007/api/projects");
+        const response = await axios.get("http://localhost:5069/api/projects");
         setProjects(response.data);
         console.log(projects);
       } catch (error) {
@@ -73,16 +71,17 @@ function UserDropdown({ value, onChange }) {
 
   return (
     <div>
-      <label htmlFor="project">Project:</label>
+      <label htmlFor="project" className="form-label">Projekt</label>
       <br />
       <select
         id="project"
         name="ProjectID_FK"
         value={value}
         onChange={onChange}
+        className="form-input"
         disabled={loading}
       >
-        <option value="">-- Select a Project --</option>
+        <option value="">-- Välj ett projekt --</option>
         {projects.map((project) => (
           <option key={project.projectID} value={project.projectID}>
             {project.title}
@@ -92,13 +91,6 @@ function UserDropdown({ value, onChange }) {
     </div>
   );
 }
-
-
-
-  
-  
-
-
 
 
 
@@ -131,7 +123,7 @@ export default function Modal({ onAddTask }) {
     console.log("Submitting taskParsed:", taskParsed);
 
     try {
-      const response = await axios.post(`https://localhost:7007/tasks`, taskParsed);
+      const response = await axios.post(`http://localhost:5069/tasks`, taskParsed);
       console.log("Task added successfully:", response.data);
     } catch (error) {
       console.error("Error adding task:", error);
@@ -155,9 +147,7 @@ export default function Modal({ onAddTask }) {
 
 
             <header className="modal-header">
-            
-            <h2 className="modal-title">Add Task</h2>
-
+            <h2 className="modal-title">Lägg till en uppgift</h2>
             <button
               type="button"
               onClick={() => setIsOpen(false)}
@@ -166,31 +156,37 @@ export default function Modal({ onAddTask }) {
               ×
             </button>
 
+            <div className="modal-subtitle">
+              <p> Obligatoriska fält är markerade med en asterisk *</p>
+            </div>
             </header>
 
-            
 
-            <form onSubmit={handleSubmit}>
+           
+            <form onSubmit={handleSubmit} className="modal-form">
+              
               <div>
-                <label>Title:</label>
+                <label className="form-label">Rubrik</label>
                 <br />
                 <input
                   type="text"
                   name="Title"
                   value={formData.Title}
                   onChange={handleChange}
+                  className="form-input"
                   required
                 />
               </div>
 
               <div>
-                <label>Due Date:</label>
+                <label className="form-label">Förfallodatum</label>
                 <br />
                 <input
                   type="date"
                   name="DueDate"
                   value={formData.DueDate}
                   onChange={handleChange}
+                  className="form-input"
                   required
                 />
               </div>
@@ -210,10 +206,10 @@ export default function Modal({ onAddTask }) {
               </div>
 
               <div>
-                <label for="status">Status</label>
+                <label for="status" className="form-label">Status</label>
                 <br />
                 
-                <select id="status" name="Status" value={formData.Status} onChange={handleChange} required>
+                <select id="status" name="Status" value={formData.Status} onChange={handleChange} className="form-input" required>
                 <option value="Ej påbörjad">Ej påbörjad</option>
                 <option value="Påbörjad">Pågående</option>
                 <option value="Avslutad">Slutförd</option>
@@ -229,9 +225,10 @@ export default function Modal({ onAddTask }) {
                 <button type="submit" className="todo-btn">Add Task</button>
               </div>
 
-
-
             </form>
+
+           
+
           </div>
         </div>
       )}

@@ -1,4 +1,4 @@
-.settings-header {
+.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,19 +9,35 @@
   background: white;
 }
 
-.settings-header-title {
+.header-title {
   display: flex;
   flex-direction: column;
-}
-
-.settings-title {
   margin: 0;
   font-size: 1.8rem;
   font-weight: 700;
+
 }
 
-.settings-subtitle {
+
+.header-subtitle & .dashboard-date {
   margin: 4px 0 0;
   color: #666;
   font-size: 1rem;
+}
+
+
+
+
+.header-subtitle-right{
+  margin: 4px 0 0;
+  color: #666;
+  font-size: 1rem;
+  text-align: right;
+  font-style: light;
+  font-weight: 300;
+} 
+
+.header-subtitle-right:hover{
+  color: #000;
+  cursor: pointer;
 }
