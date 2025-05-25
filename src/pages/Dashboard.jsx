@@ -5,11 +5,15 @@ import QuickShortcuts from '../components/dashboardPage/QuickShortcuts';
 import TeamPulse from '../components/dashboardPage/TeamPulse';
 import '../components/dashboardPage/DashboardLayout.css';
 import CustomSidebar from '../components/navbar/CustomSidebar';
+import Navbar from '../components/navbar/Navbar';
 
 const Dashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   return (
+
+    <>
+    <Navbar />
     <div className="dashboard-layout">
       <CustomSidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
       
@@ -24,6 +28,7 @@ const Dashboard = () => {
         <TeamPulse />
       </div>
     </div>
+    </>
   );
 };
 

@@ -13,7 +13,7 @@ export default function TaskHeader(){
       </div>
       <div className="header-subtitle-right">
       <h4>
-          <Link to="/dashboard" className="header-subtitle-right">PlanIT</Link> / <Link to="/task" className="header-subtitle-right">Task</Link>
+          <Link to="/dashboard" className="header-subtitle-right">BuildBoard</Link> / <Link to="/task" className="header-subtitle-right">Task</Link>
         </h4>
       </div>
       

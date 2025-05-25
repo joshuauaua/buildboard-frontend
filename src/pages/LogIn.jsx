@@ -1,8 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './LogIn.css';
+import PublicNavbar from '../components/navbar/PublicNavbar';
 
 export default function LogIn() {
   return (
+
+    <>
+    <PublicNavbar />
     <form className="form">
       <p className="form-title">Sign in to your account</p>
 
@@ -23,6 +28,7 @@ export default function LogIn() {
         No account? <Link to="/sign-up">Sign up</Link>
       </p>
     </form>
+    </>
   );
 }
 

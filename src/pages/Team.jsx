@@ -2,8 +2,9 @@
 import "./Team.css";
 import TeamDirectory from "../components/teamPage/TeamDirectory";
 import { Link } from "react-router-dom";
-import NewCustomSidebar from "../components/navbar/NewCustomSidebar";
+import CustomSidebar from "../components/navbar/CustomSidebar";
 import TeamHeader from "../components/teamPage/TeamHeader";
+import Navbar from "../components/navbar/Navbar";
 
 
 export default function Team(){
@@ -13,8 +14,9 @@ export default function Team(){
     <>
    <div className= "page-container">
 
+    <Navbar/>
     <TeamHeader/>
-    <NewCustomSidebar/>
+    <CustomSidebar/>
     <TeamDirectory/>
 
     </div>

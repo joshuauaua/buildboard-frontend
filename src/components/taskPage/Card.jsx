@@ -1,5 +1,5 @@
 import "./Card.css";
-
+import EditModal from "../taskPage/EditModal";
 
 
 function showUser(teamMember) {
@@ -18,6 +18,9 @@ function formatDate(dateString) {
 
 
 export default function Card({ task }) {
+
+
+  
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -45,7 +48,8 @@ export default function Card({ task }) {
 
       <header className="card-header">      
       <h4>{task.title}</h4>
-      <button className="edit-btn"><img src="./src/assets/edit.svg" alt="edit-icon"></img> </button>
+      <button className="edit-btn"><img src="./src/assets/edit.svg" alt="edit-icon">  
+      </img> </button>
       </header>
 
       <main className="card-main">

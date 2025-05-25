@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './SignUp.css';
+import PublicNavbar from '../components/navbar/PublicNavbar';
 
 export default function SignUp() {
   return (
+    <>
+    <PublicNavbar />
     <div className="form-box">
       <form className="form">
         <span className="title">Sign up</span>
@@ -19,5 +22,6 @@ export default function SignUp() {
         <p>Have an account? <Link to="/log-in">Log in</Link></p>
       </div>
     </div>
+    </>
   );
 }

@@ -7,7 +7,7 @@ import LogIn from '../components/LogIn';
     const LogOut = () => {
       return (
         <div>
-          LogIn
+          
           <LogIn />
        
         </div>

@@ -5,8 +5,9 @@ import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 // import { myEventsList } from "../components/calendarPage/EventsList";
 import CalendarHeader from "../components/calendarPage/CalendarHeader";
-import NewCustomSidebar from "../components/navbar/NewCustomSidebar";
+import CustomSidebar from "../components/navbar/CustomSidebar";
 import "./Calendars.css";
+import Navbar from "../components/navbar/Navbar";
 
 const localizer = momentLocalizer(moment);
 
@@ -56,7 +57,8 @@ export default function Calendars() {
   return (
 
     <>
-    <NewCustomSidebar />
+    <Navbar />
+    <CustomSidebar />
     <CalendarHeader />
 
 

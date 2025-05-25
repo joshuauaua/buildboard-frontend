@@ -11,14 +11,12 @@ import Task from './pages/Task'
 import LogIn from './pages/LogIn'    
 import SignUp from './pages/SignUp' 
 import About from './pages/About' 
-import NewNavbar from './components/navbar/NewNavbar'
 
 export default function  App() {
 
   return (
 
     <BrowserRouter>
-      <NewNavbar/>
       <Routes>
         <Route path="/" element={<Home/>}>/</Route>
         <Route path="/dashboard" element={<Dashboard/>}>/Dashboard</Route>

@@ -5,7 +5,8 @@ import Modal from "../components/taskPage/Modal";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import TaskHeader from "../components/taskPage/TaskHeader";
-import NewCustomSidebar from "../components/navbar/NewCustomSidebar";
+import CustomSidebar from "../components/navbar/CustomSidebar";
+import Navbar from "../components/navbar/Navbar";
 
 export default function ToDo() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -78,12 +79,14 @@ const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   return (
     <div>
+
+      <Navbar userName="Joshua" setIsOpen={setIsSidebarOpen} isOpen={isSidebarOpen} />
       
       <header>
       <TaskHeader />
       </header>
 
-      <NewCustomSidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
+      <CustomSidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
 
       <main className="main-content">
