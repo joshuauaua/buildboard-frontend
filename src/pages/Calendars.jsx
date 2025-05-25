@@ -4,6 +4,8 @@ import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { myEventsList } from "../components/calendarPage/EventsList";
 import CalendarHeader from "../components/calendarPage/CalendarHeader";
+import NewCustomSidebar from "../components/navbar/NewCustomSidebar";
+import "./Calendars.css";
 
 const localizer = momentLocalizer(moment);
 
@@ -25,18 +27,18 @@ export default function Calendars() {
   return (
 
     <>
-
+    <NewCustomSidebar />
     <CalendarHeader />
 
 
-    <main  style={{ height: 800, padding: "2rem" }}>
+    <main  className="calendar-main" style={{ height: 800, marginleft: "16rem"}}>
       <Calendar
         localizer={localizer}
         events={myEventsList}
         startAccessor="start"
         endAccessor="end"
         style={{ height: "100%" }}
-        views={{ month: true, week: true, day: true, agenda: true }}
+        views={{ month: true, week: true, agenda: true }}
         view={view}
         onView={handleViewChange}
         date={date}

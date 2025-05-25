@@ -2,6 +2,7 @@
   display: grid;
   position: fixed;
   background-color: white;
+  z-index: 1000;
   } 
 
 .modal-content {

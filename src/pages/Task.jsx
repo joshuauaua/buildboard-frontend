@@ -1,11 +1,11 @@
-import "./ToDo.css";
+import "./Task.css";
 import { useState, useRef, useEffect } from "react";
 import CardContainer from "../components/taskPage/CardContainer";
 import Modal from "../components/taskPage/Modal";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import TaskHeader from "../components/taskPage/TaskHeader";
-import CustomSidebar from "../components/navbar/CustomSidebar";
+import NewCustomSidebar from "../components/navbar/NewCustomSidebar";
 
 export default function ToDo() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -78,17 +78,19 @@ const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   return (
     <div>
-
+      
+      <header>
       <TaskHeader />
+      </header>
 
-      <CustomSidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
+      <NewCustomSidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
 
       <main className="main-content">
 
         <div className="main-header"> 
         <div className="main-header-left">
-          <h2 className="main-title">Task Board</h2>
+          <h2 className="main-title">Kanban Board</h2>
           <p className="main-subtitle">Add your tasks and manage them</p>
         </div>
         

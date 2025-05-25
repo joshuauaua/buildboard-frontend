@@ -1,33 +1,7 @@
 body{
   background-color: #f5f5f5;
-
 }
 
-.header-content{
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f5f5f5;
-  padding: 80px;
-  display: grid;
-  grid-template-columns: 1fr, 1fr, 1fr;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-
-.header-title{
-  font-size: 28px;
-  margin: 0;
-}
-
-.header-subtitle{
-  font-size: 18px;
-  font-weight: lighter;
-  color: #666;
-}
-.header-subtitle:hover{
-  color: #333;
-}
 
 .filter-container{
   align-items: left;
@@ -46,6 +20,7 @@ body{
   justify-content: space-between;
   align-items: center;
   padding-bottom: 40px;
+  border-bottom: solid 1px #ddd;
 }
 
 
@@ -65,6 +40,7 @@ body{
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   margin: 40px auto;
   font-family: 'Segoe UI', sans-serif;
+  margin-left: 18rem;
 }
 
 .main-content h2 {

@@ -6,7 +6,7 @@ import React from "react";
 export default function TaskHeader(){
 
   return (
-    <header className="header-container">
+    <div className="header-container">
       <div className="header-title">
         <h1 className="header-title">Tasks</h1>
         <p className="header-subtitle">Add your tasks and manage them</p>
@@ -17,7 +17,7 @@ export default function TaskHeader(){
         </h4>
       </div>
       
-    </header>
+    </div>
   );
 }
   

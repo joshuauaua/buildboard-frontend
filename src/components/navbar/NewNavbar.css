@@ -6,9 +6,13 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
-  position: relative;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-  
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: 100%;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-bottom: 1px solid #ddd;
+  z-index: 1000;
 }
 
 .site-title {

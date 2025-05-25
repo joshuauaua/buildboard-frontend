@@ -7,7 +7,7 @@ import Calendars from './pages/Calendars'
 import Settings from './pages/Settings'
 import Team from './pages/Team'
 import LogOut from './pages/LogOut'
-import ToDo from './pages/ToDo'
+import Task from './pages/Task'
 import LogIn from './pages/LogIn'    
 import SignUp from './pages/SignUp' 
 import About from './pages/About' 
@@ -23,7 +23,7 @@ export default function  App() {
         <Route path="/" element={<Home/>}>/</Route>
         <Route path="/dashboard" element={<Dashboard/>}>/Dashboard</Route>
         <Route path="/team" element={<Team/>}>/Team</Route>
-        <Route path="/to-do" element={<ToDo/>}>/To Do</Route>
+        <Route path="/tasks" element={<Task/>}>/Task</Route>
         <Route path="/calendar" element={<Calendars/>}>/Calendar</Route>
         <Route path="/settings" element={<Settings/>}>/Settings</Route>
         <Route path="/log-out" element={<LogOut/>}>/LogOut</Route>
