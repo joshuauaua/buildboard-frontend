@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 import React from "react";
 
 
-export default function TeamHeader(){
+export default function TaskHeader(){
 
   return (
     <div className="header-container">
       <div className="header-title">
         <h1 className="header-title">Team</h1>
-        <p className="header-subtitle">Add your tasks and manage them</p>
+        <p className="header-subtitle"></p>
       </div>
       <div className="header-subtitle-right">
       <h4>
-          <Link to="/dashboard" className="header-subtitle-right">BuildBoard</Link> / <Link to="/task" className="header-subtitle-right">Task</Link>
+          <Link to="/dashboard" className="header-subtitle-right">BuildBoard</Link> / <Link to="/team" className="header-subtitle-right">Team</Link>
         </h4>
       </div>
       

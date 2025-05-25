@@ -14,7 +14,8 @@ export default function UserDropdown({ value, onChange }) {
 
   return (
     <>
-      <label className="form-label">Assign to:</label>
+      <label className="form-label">Tilldelad till
+      </label>
       <select className="form-input" name="UserID_FK" value={value} onChange={onChange} required>
         <option value="">Select a user</option>
         {users.map((user) => (

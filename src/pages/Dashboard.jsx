@@ -7,7 +7,7 @@ import '../components/dashboardPage/DashboardLayout.css';
 import CustomSidebar from '../components/navbar/CustomSidebar';
 import Navbar from '../components/navbar/Navbar';
 import DashboardHeader from '../components/dashboardPage/DashboardHeader';
-import QuickConnect from '../components/teamPage/QuickConnect';
+
 
 
 
@@ -28,7 +28,6 @@ const Dashboard = () => {
       >
         <div className="dashboard-row">
 
-          <QuickConnect />
           <DailyCheckIn />
           <TodaysFocus />
         </div>

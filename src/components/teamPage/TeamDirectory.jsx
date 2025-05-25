@@ -16,9 +16,9 @@ function ProfileCard({ member, onView }) {
       <div className="avatar-circle">
         <FirstLetter name={member.username} />
       </div>
-      <h2>{member.username}</h2>
-      <p><strong>Role:</strong> {member.role}</p>
-      <p><strong>Description: </strong>{member.description}</p>
+      <h2 className="card-title">{member.username}</h2>
+      <p className="card-subtitle"><strong>Role:</strong> {member.role}</p>
+      <p className="card-subtitle"> <strong>Team: </strong>{member.team}</p>
       <button onClick={() => onView(member)}>View</button>
     </div>
   );
@@ -133,8 +133,8 @@ export default function TeamDirectory() {
     <div className="team-directory">
       <header className="header-directory">
         <div className="header-title">
-          <h2>Directory</h2>
-          <p>Find and connect with colleagues</p>
+          <h2>Teamkatalog</h2>
+          <p>Här kan du hitta och få kontakt med dina lagkamrater</p>
         </div>
 
         <div className="header-body">
@@ -150,16 +150,16 @@ export default function TeamDirectory() {
 
       <div className="pagination">
         <button onClick={() => setPage((p) => Math.max(1, p - 1))} disabled={page === 1}>
-          Prev
+        Tidigare
         </button>
-        <span>Page {page} of {totalPages}</span>
+        <span>Sida {page} av {totalPages}</span>
         <button onClick={() => setPage((p) => Math.min(totalPages, p + 1))} disabled={page === totalPages}>
-          Next
+          Nästa
         </button>
       </div>
 
       <div className="per-page">
-        <label>Cards per page: </label>
+        <label>Kort per sida </label>
         <select value={perPage} onChange={(e) => {
           setPerPage(Number(e.target.value));
           setPage(1);
@@ -174,11 +174,14 @@ export default function TeamDirectory() {
         <div className="modal" onClick={() => setSelectedMember(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="close-btn" onClick={() => setSelectedMember(null)}>X</button>
+            <div className="avatar-circle">
+            <FirstLetter name={selectedMember.username} />
+            </div>
             <h2>{selectedMember.name}</h2>
             <p><strong>Role:</strong> {selectedMember.role}</p>
-            <p><strong>Location:</strong> {selectedMember.location}</p>
+            <p><strong>Email:</strong> {selectedMember.email}</p>
+            <p><strong>Description:</strong> {selectedMember.description}</p>
             <p><strong>Team:</strong> {selectedMember.team}</p>
-            <p>{selectedMember.description}</p>
           </div>
         </div>
       )}

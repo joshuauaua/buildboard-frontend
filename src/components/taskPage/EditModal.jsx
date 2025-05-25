@@ -63,7 +63,8 @@ export default function EditModal({ task, onClose, onSave }) {
     <div className="modal-container">
       <div className="modal-content">
         <header className="modal-header">
-          <h2 className="modal-title">Edit Task</h2>
+          <h2 className="modal-title">Redigera uppgift
+          </h2>
           <button type="button" onClick={onClose} className="modal-close">
             ×
           </button>
@@ -84,15 +85,15 @@ export default function EditModal({ task, onClose, onSave }) {
           <ProjectDropdown value={formData.ProjectID_FK} onChange={handleChange} />
 
           <label className="form-label">Status</label>
-          <select name="Status" value={formData.Status} onChange={handleChange} className="form-input"required>
+          <select name="Status" value={formData.Status} onChange={handleChange} className="form-input" required>
             <option value="Ej påbörjad">Ej påbörjad</option>
-            <option value="Påbörjad">Pågående</option>
-            <option value="Avslutad">Slutförd</option>
+            <option value="Påbörjad">Påbörjad</option>
+            <option value="Avslutad">Avslutad</option>
           </select>
 
           <div className="modal-footer">
-            <button type="button" className="cancel-btn" onClick={onClose}>Cancel</button>
-            <button type="submit" className="todo-btn">Save Changes</button>
+            <button type="button" className="delete-btn" onClick={onClose}>Ta bort uppgift</button>
+            <button type="submit" className="todo-btn">Spara</button>
           </div>
         </form>
       </div>
