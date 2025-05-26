@@ -15,7 +15,7 @@ export default function DashboardHeader(){
       </div>
       <div className="header-subtitle-right">
       <h4>
-          <Link to="/dashboard" className="header-subtitle-right">BuildBoard</Link> / <Link to="/task" className="header-subtitle-right">Task</Link>
+          <Link to="/dashboard" className="header-subtitle-right">BuildBoard</Link> / <Link to="/dashboard" className="header-subtitle-right">Dashboard</Link>
         </h4>
       </div>
       

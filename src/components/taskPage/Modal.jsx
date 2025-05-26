@@ -166,7 +166,7 @@ export default function Modal({ onAddTask }) {
             <form onSubmit={handleSubmit} className="modal-form">
               
               <div>
-                <label className="form-label">Rubrik</label>
+                <label className="form-label">Rubrik*</label>
                 <br />
                 <input
                   type="text"
@@ -179,7 +179,7 @@ export default function Modal({ onAddTask }) {
               </div>
 
               <div>
-                <label className="form-label">Förfallodatum</label>
+                <label className="form-label">Förfallodatum*</label>
                 <br />
                 <input
                   type="date"
@@ -206,13 +206,13 @@ export default function Modal({ onAddTask }) {
               </div>
 
               <div>
-                <label for="status" className="form-label">Status</label>
+                <label for="status" className="form-label">Status*</label>
                 <br />
                 
                 <select id="status" name="Status" value={formData.Status} onChange={handleChange} className="form-input" required>
                 <option value="Ej påbörjad">Ej påbörjad</option>
-                <option value="Påbörjad">Pågående</option>
-                <option value="Avslutad">Slutförd</option>
+                <option value="Påbörjad">Påbörjad</option>
+                <option value="Avslutad">Avslutad</option>
                 </select>
               </div>
 

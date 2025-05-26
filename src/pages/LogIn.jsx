@@ -15,23 +15,23 @@ export default function LogIn() {
     <LoginBackground />
 
     <form className="form">
-      <p className="form-title">Sign in to your account</p>
+      <p className="form-title">Logga in på ditt konto</p>
 
       <div className="input-container">
-        <input type="email" placeholder="Enter email" />
+        <input type="email" placeholder="Ange e-postadress" />
         <span></span>
       </div>
 
       <div className="input-container">
-        <input type="password" placeholder="Enter password" />
+        <input type="password" placeholder="Ange lösenord" />
       </div>
 
       <button type="submit" className="submit">
-        Sign in
+        Logga in
       </button>
 
       <p className="signup-link">
-        No account? <Link to="/register">Sign up</Link>
+        Inget konto? <Link to="/register">Registrera dig</Link>
       </p>
     </form>
 

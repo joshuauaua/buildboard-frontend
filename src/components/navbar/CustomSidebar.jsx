@@ -13,7 +13,7 @@ const CustomSidebar = () => {
 
   const navItems = [
     { to: "/dashboard", icon: <Home />, label: "Dashboard" },
-    { to: "/tasks", icon: <Target />, label: "Goals & Tasks" },
+    { to: "/tasks", icon: <Target />, label: "Uppgifter" },
     { to: "/calendar", icon: <Calendar />, label: "Kalender" },
     { to: "/team", icon: <Users />, label: "Team" },
     { to: "/settings", icon: <Settings />, label: "Inställningar" }
