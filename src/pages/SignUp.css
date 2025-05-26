@@ -16,19 +16,21 @@
   margin-bottom: 3rem;
 }
 
-/*Form text*/
-.title {
+
+.form-title {
   font-weight: bold;
   font-size: 1.6rem;
-  margin-bottom: 0;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
 }
 
-.subtitle {
+.form-subtitle {
+  padding-top: 0px;
+  margin-top: 0px;
   font-size: 1rem;
   color: #666;
 }
 
-/*Inputs box*/
 .form-container {
   overflow: hidden;
   border-radius: 8px;
@@ -81,4 +83,6 @@
 
 .form button:hover {
   background-color: #005ce6;
+  cursor: pointer;
 }
+

@@ -21,7 +21,7 @@ function HowItWorks() {
 
   return (
     <section className={styles.howItWorks}>
-      <h2 className={styles.heading}>Hur PlanIt fungerar.</h2>
+      <h2 className={styles.heading}>Hur BuildBoard fungerar.</h2>
       <p className={styles.sectionTitle}>Combinerar teambuilding och projektledning i en sömlös upplevelse.</p>
       <div className={styles.steps}>
         {steps.map((item, index) => (

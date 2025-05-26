@@ -19,7 +19,7 @@ export default function SignUp() {
       <p className="form-subtitle">Skapa ett gratis konto hos Buildboard</p>
 
       <div className="input-container">
-        <input type="email" placeholder="Fullständigt namn" />
+        <input type="text" placeholder="Fullständigt namn" />
         <span></span>
       </div>
 
@@ -37,7 +37,7 @@ export default function SignUp() {
       </button>
 
       <p className="signup-link">
-      Har du redan ett konto?<Link to="/log-in">Logga</Link>
+      Har du redan ett konto? <Link to="/log-in">Logga In</Link>
       </p>
     </form>
 

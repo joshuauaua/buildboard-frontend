@@ -45,7 +45,7 @@ const About = () => {
           Lämna manuella system och ostrukturerad kommunikation bakom dig. 
           Med BuildBoard får ni en samlad plats för allt ert arbete.
         </p>
-        <Link to="/sign-up" className="cta-button">Testa gratis</Link>
+        <Link to="/register" className="cta-button">Testa gratis</Link>
       </section>
     </div>
     </>
