@@ -4,7 +4,7 @@ import LogIn from '../components/LogIn';
 
 
       
-    const LogOut = () => {
+    export default function LogOut(){
       return (
         <div>
           
@@ -13,5 +13,3 @@ import LogIn from '../components/LogIn';
         </div>
       );
     };
-    
-    export default LogOut;

@@ -14,7 +14,7 @@ const HeroSection = () => {
       </h1>
       <p>Den kompletta plattformen för teambyggande, målspårning och välmående.</p>
       <div className={styles.buttons}>
-        <button className={styles.primary} ><Link to="/sign-up">Prova gratis</Link></button>
+        <button className={styles.primary} ><Link to="/register">Prova gratis</Link></button>
         <button className={styles.secondary}><Link to="/about">Boka demo</Link></button>
       </div>
     </div>
