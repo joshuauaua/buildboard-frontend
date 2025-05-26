@@ -13,20 +13,20 @@ const QuickShortcuts = () => {
       <div className="shortcuts-grid">
         <button className="shortcut-button">
           <Target className="shortcut-icon" />
-          <span>Mina uppgifter</span>
+          <span><Link to ="/tasks"> Mina uppgifter </Link></span>
         </button>
         <button className="shortcut-button">
           <Calendar className="shortcut-icon" />
-          <span>Kalender</span>
+          <span><Link to ="/calendar">Kalender</Link></span>
         </button>
         <button className="shortcut-button">
           <Users className="shortcut-icon" />
-          <span>Team</span>
+          <span><Link to ="/team">Team</Link></span>
         </button>
         <button className="shortcut-button">
-          <Link to ="/tasks">
+          
           <Clock className="shortcut-icon" />
-          <span>Senaste</span></Link>
+          <span><Link to ="/tasks">Senaste</Link></span>
         </button>
       </div>
     </section>

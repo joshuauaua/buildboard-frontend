@@ -5,12 +5,29 @@ const DailyCheckIn = () => {
   const [mood, setMood] = useState(null);
   const [checkInText, setCheckInText] = useState("");
 
+
+  const today = new Date();
+  const formattedDate = today.toLocaleDateString('sv-SE', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+  
+
   return (
     <section className="daily-checkin">
       <div className="checkin-wrapper">
+        
         <div className="checkin-header">
+        <div className="checkin-header-right">
           <h2>Daglig Check-in</h2>
           <p>Hur mår du idag?</p>
+        </div>
+        
+        <div className="checkin-header-left">
+        <p className="dashboard-date">{formattedDate}</p>
+        </div>
         </div>
 
         {mood === null ? (

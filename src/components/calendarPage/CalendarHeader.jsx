@@ -8,12 +8,11 @@ export default function TaskHeader(){
   return (
     <div className="header-container">
       <div className="header-title">
-        <h1 className="header-title">Calendar</h1>
-        <p className="header-subtitle">Add your tasks and manage them</p>
+        <h1 className="header-title">Kalendar</h1>
       </div>
       <div className="header-subtitle-right">
       <h4>
-          <Link to="/dashboard" className="header-subtitle-right">BuildBoard</Link> / <Link to="/task" className="header-subtitle-right">Calendar</Link>
+          <Link to="/dashboard" className="header-subtitle-right">BuildBoard</Link> / <Link to="/kalendar" className="header-subtitle-right">Kalendar</Link>
         </h4>
       </div>
       

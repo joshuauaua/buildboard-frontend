@@ -1,4 +1,3 @@
-
 .navbar {
   background-color: rgb(255, 255, 255);
   color: rgb(255, 254, 254);
@@ -10,7 +9,7 @@
   top: 0;
   width: 100%;
   max-width: 100%;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   border-bottom: 1px solid #ddd;
   z-index: 1000;
 }
@@ -33,11 +32,17 @@
   display: inline;
   margin-right: 60px;
   font-size: 22px;
-  color:#7a7a7a;
+  color: #7a7a7a;
   cursor: pointer;
 }
 
-.avatar-letter{
+.avatar-wrapper {
+  position: relative;
+  cursor: pointer;
+  margin-right: 50px;
+}
+
+.avatar {
   width: 40px;
   height: 40px;
   background-color: #6b8fd5a1;
@@ -45,31 +50,68 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
-  font-size: 20px;
-  color: #ffffff;
   margin-right: 50px;
 }
 
+.avatar-letter {
+  font-weight: 600;
+  font-size: 20px;
+  color: #ffffff;
+}
 
-.avatar-letter:hover{
+.avatar:hover {
   background-color: #4f46e5;
   color: white;
-  transition: background-color 0.3s ease;
-  transition: color 0.3s ease;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 
-.dropdown-menu{
-  display: inline-block;
-  position:fixed
+
+.dropdown-container {
+  position: absolute;
+  right: 0;
+  top: 60px;
+  width: 160px;
+  display: none;
+  z-index: 1000;
+  flex-direction: column; 
+}
+
+.dropdown-container.open {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  max-width: fit-content;
+}
+
+.dropdown-menu {
+  display: flex;
+  flex-direction: column; 
+  background-color: #b1b1b1;
+  padding: 4px 4px;
+  border-radius: 5px;
 
 }
 
+.dropdown-item {
+  list-style: none;
+    margin-left: 50px;
 
+}
+
+.dropdown-item a {
+  display: block;
+  width: 100%;
+  padding: 16px 16px;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}
+
+.dropdown-item a:hover {
+  background-color: transparent;
+}
 
 
 a {
@@ -82,7 +124,7 @@ a {
 }
 
 .navbar li:hover {
-  background-color: rgba(236, 236, 236, 0.276);
+  background-color: transparent;
 }
 
 .hamburger {
@@ -93,6 +135,7 @@ a {
   color: white;
   cursor: pointer;
 }
+
 
 @media (max-width: 768px) {
   .hamburger {
@@ -120,4 +163,3 @@ a {
     font-size: 20px;
   }
 }
-

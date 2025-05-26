@@ -93,7 +93,7 @@ const [isSidebarOpen, setIsSidebarOpen] = useState(true);
         <div className="main-header"> 
         <div className="main-header-left">
           <h2 className="main-title">Kanban Board</h2>
-          <p className="main-subtitle">Add your tasks and manage them</p>
+          <p className="main-subtitle">Lägg till dina uppgifter och hantera dem här</p>
         </div>
         
         <div className="main-header-right">

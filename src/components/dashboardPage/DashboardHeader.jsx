@@ -6,21 +6,12 @@ import React from "react";
 export default function DashboardHeader(){
 
 
-  const today = new Date();
-  const formattedDate = today.toLocaleDateString('en-US', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
-
 
 
   return (
     <div className="header-container">
       <div className="header-title">
         <h1 className="header-title">Dashboard</h1>
-        <p className="dashboard-date">{formattedDate}</p>
       </div>
       <div className="header-subtitle-right">
       <h4>

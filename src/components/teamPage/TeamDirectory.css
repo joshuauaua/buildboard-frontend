@@ -11,17 +11,11 @@
 
 .header-directory {
   display: grid;
-  align-items: center;
+  grid-template-columns: 1fr auto;
   justify-content: space-between;
   margin-bottom: 2rem;
   gap: 2rem;
-}
-
-.header-body{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 
@@ -63,6 +57,11 @@
   outline: none;
 }
 
+.search-input{
+  flex: 1;
+  min-width: 200px;
+}
+
 .sort-control {
   display: flex;
   align-items: center;
@@ -84,7 +83,9 @@
 }
 
 .card {
-  display: flex;
+  display: grid;
+  grid-template-rows: auto 1fr auto;  
+  gap: 1rem;
   border: 1px solid #e5e7eb;
   padding: 1.7rem;
   border-radius: 12px;
@@ -106,13 +107,25 @@
   margin: 0;
 }
 
-.card-subtitle{
+.card-body{
   display: grid;
-  font-size: 0.95rem;
-  color: #6b7280;
-  margin-bottom: 1rem;
-  padding: 0;
-  margin: 0;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.card-subtitle{
+  font-size: 1rem;
+  color: #4b5563;
+  margin: 0 0;
+  text-align: right;
+}
+
+.card-subtitle-right{
+  font-size: 1rem;
+  color: #4b5563;
+  margin: 0 0;
+  text-align: left
 }
 
 

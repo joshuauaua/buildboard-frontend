@@ -9,7 +9,6 @@ export default function TaskHeader(){
     <div className="header-container">
       <div className="header-title">
         <h1 className="header-title">Team</h1>
-        <p className="header-subtitle"></p>
       </div>
       <div className="header-subtitle-right">
       <h4>

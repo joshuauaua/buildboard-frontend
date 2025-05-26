@@ -17,8 +17,15 @@ function ProfileCard({ member, onView }) {
         <FirstLetter name={member.username} />
       </div>
       <h2 className="card-title">{member.username}</h2>
-      <p className="card-subtitle"><strong>Role:</strong> {member.role}</p>
-      <p className="card-subtitle"> <strong>Team: </strong>{member.team}</p>
+      
+      <div className="card-body">
+      <p className="card-subtitle"><strong>Role:</strong></p>
+      <p className="card-subtitle-right">{member.role}</p>
+
+      <p className="card-subtitle"> <strong>Team: </strong></p>
+      <p className="card-subtitle-right">{member.team}</p>
+      </div>
+
       <button onClick={() => onView(member)}>View</button>
     </div>
   );
@@ -38,7 +45,8 @@ function Filters({ filters, setFilters, allMembers }) {
     <div className="filters">
       <input
         type="text"
-        placeholder="Search by name or description..."
+        placeholder="Sök efter namn eller beskrivning..."
+        className="search-input"
         value={filters.search}
         onChange={(e) => setFilters({ ...filters, search: e.target.value })}
       />

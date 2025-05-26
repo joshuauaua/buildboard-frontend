@@ -1,7 +1,6 @@
 
 import "./Team.css";
 import TeamDirectory from "../components/teamPage/TeamDirectory";
-import { Link } from "react-router-dom";
 import CustomSidebar from "../components/navbar/CustomSidebar";
 import TeamHeader from "../components/teamPage/TeamHeader";
 import Navbar from "../components/navbar/Navbar";

@@ -1,17 +1,22 @@
-import React from "react";
-import { LogOut } from "lucide-react";
 import "./SettingsHeader.css";
+import { Link } from "react-router-dom";
+import React from "react";
 
-const SettingsHeader = () => {
+
+export default function TaskHeader(){
+
   return (
-    <header className="settings-header">
-      <div className="settings-header-title">
-        <h1 className="settings-title">Settings</h1>
-        <p className="settings-subtitle">Customize your experience</p>
+    <div className="header-container">
+      <div className="header-title">
+        <h1 className="header-title">Inställningar</h1>
+      </div>
+      <div className="header-subtitle-right">
+      <h4>
+          <Link to="/dashboard" className="header-subtitle-right">BuildBoard</Link> / <Link to="/settings" className="header-subtitle-right">Inställningar</Link>
+        </h4>
       </div>
       
-    </header>
+    </div>
   );
-};
-
-export default SettingsHeader;
+}
+  

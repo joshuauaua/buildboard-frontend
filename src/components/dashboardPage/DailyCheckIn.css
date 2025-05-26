@@ -16,6 +16,13 @@
 }
 
 
+.checkin-header{
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  align-items: top;
+  justify-content: space-between
+}
+
 .checkin-header h2 {
   margin-bottom: 4px;
   

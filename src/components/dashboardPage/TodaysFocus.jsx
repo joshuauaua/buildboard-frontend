@@ -1,5 +1,6 @@
 import React from "react";
 import "./TodaysFocus.css";
+import { Link } from "react-router-dom";
 
 const TodaysFocus = () => {
   return (
@@ -32,7 +33,7 @@ const TodaysFocus = () => {
           <div className="task-due">Kl. 14:00 - 15:00</div>
         </div>
 
-        <button className="view-all-button">Visa alla uppgifter</button>
+        <button className="view-all-button"> <Link to ="/tasks"> Visa alla uppgifter</Link></button>
       </div>
     </section>
   );
