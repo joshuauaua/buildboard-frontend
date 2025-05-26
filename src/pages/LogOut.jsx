@@ -1,6 +1,6 @@
 import "../index.css";
 import React from 'react';
-import LogIn from '../components/LogIn'; 
+import LogIn from '../pages/LogIn'; 
 
 
       

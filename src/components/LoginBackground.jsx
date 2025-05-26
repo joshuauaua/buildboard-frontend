@@ -1,9 +1,6 @@
 import "./LoginBackground.css";
 
 
-
-
-
 export default function LoginBackground(){
 
       return(

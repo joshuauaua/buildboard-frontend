@@ -31,7 +31,7 @@ export default function LogIn() {
       </button>
 
       <p className="signup-link">
-        No account? <Link to="/sign-up">Sign up</Link>
+        No account? <Link to="/register">Sign up</Link>
       </p>
     </form>
 
@@ -39,4 +39,3 @@ export default function LogIn() {
     </>
   );
 }
-
