@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './SignUp.css';
+import './SignUpNew.css';
 import PublicNavbar from '../components/navbar/PublicNavbar';
 import LoginBackground from '../components/LoginBackground';
 
@@ -16,15 +16,18 @@ export default function SignUp() {
 
     <form className="form">
       <p className="form-title">Registrera</p>
-      <p className="form-subtitle">Skapa ett gratis konto hos Buildboard</p>
+      <p className="form-subtitle">Skapa ett gratis konto med din e-post.</p>
+
+
+
 
       <div className="input-container">
-        <input type="email" placeholder="Fullständigt namn" />
+        <input type="name" placeholder="Fullständigt namn" />
         <span></span>
       </div>
 
       <div className="input-container">
-        <input type="epost" placeholder="Ange e-postadress" />
+        <input type="email" placeholder="Ange e-postadress" />
         <span></span>
       </div>
 
@@ -37,7 +40,7 @@ export default function SignUp() {
       </button>
 
       <p className="signup-link">
-      Har du redan ett konto?<Link to="/log-in">Logga</Link>
+        Inget konto? <Link to="/log-in">Logga in</Link>
       </p>
     </form>
 
@@ -45,4 +48,3 @@ export default function SignUp() {
     </>
   );
 }
-
