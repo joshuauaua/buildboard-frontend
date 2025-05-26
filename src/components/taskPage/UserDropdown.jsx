@@ -7,7 +7,7 @@ export default function UserDropdown({ value, onChange }) {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5069/Users") // adjust URL as needed
+    axios.get("https://localhost:7007/Users") // adjust URL as needed
       .then((response) => setUsers(response.data))
       .catch((error) => console.error("Failed to fetch users:", error));
   }, []);

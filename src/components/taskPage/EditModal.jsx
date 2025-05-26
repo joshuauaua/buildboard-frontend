@@ -13,7 +13,7 @@ export default function EditModal({ task, onClose, onSave }) {
     Description: "",
     DueDate: "",
     UserID_FK: "",
-    ProjectID_FK: "",
+    GoalID_FK: "",
     Status: "Ej påbörjad",
   });
 
@@ -25,8 +25,8 @@ export default function EditModal({ task, onClose, onSave }) {
         Title: task.title || "",
         Description: task.description || "",
         DueDate: task.dueDate ? task.dueDate.split("T")[0] : "", // handle ISO date
-        UserID_FK: task.userID || "",
-        ProjectID_FK: task.projectID || "",
+        UserID_FK: task.UserID_FK || "",
+        GoalID_FK: task.GoalID_FK || "",
         Status: task.status || "Ej påbörjad",
       });
     }
@@ -47,7 +47,7 @@ export default function EditModal({ task, onClose, onSave }) {
     };
 
     try {
-      const response = await axios.put(`http://localhost:5069/tasks/${task.id}`, updatedTask);
+      const response = await axios.patch(`https://localhost:7007/tasks/${task.taskID}`, updatedTask);
       console.log("Task updated:", response.data);
       onSave(response.data);
       onClose();
@@ -81,7 +81,7 @@ export default function EditModal({ task, onClose, onSave }) {
           <input type="date" name="DueDate" value={formData.DueDate} onChange={handleChange} className="form-input" required />
 
           <UserDropdown value={formData.UserID_FK} onChange={handleChange} />
-          <ProjectDropdown value={formData.ProjectID_FK} onChange={handleChange} />
+          <ProjectDropdown value={formData.GoalID_FK} onChange={handleChange} />
 
           <label className="form-label">Status</label>
           <select name="Status" value={formData.Status} onChange={handleChange} className="form-input"required>

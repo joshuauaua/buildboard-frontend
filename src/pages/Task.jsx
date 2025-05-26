@@ -43,7 +43,7 @@ const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get("http://localhost:5069/tasks");
+        const response = await axios.get("https://localhost:7007/tasks");
         setTasks(response.data);
       } catch (error) {
         console.error("Error fetching tasks:", error);
