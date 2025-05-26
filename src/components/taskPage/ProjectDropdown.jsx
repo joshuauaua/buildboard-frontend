@@ -15,7 +15,7 @@ export default function ProjectDropdown({ value, onChange }) {
   return (
     <>
       <label className="form-label">Projekt</label>
-      <select name="ProjectID_FK" value={value} onChange={onChange} className="form-input" required>
+      <select name="GoalID_FK" value={value} onChange={onChange} className="form-input" required>
         <option value="">Select a project</option>
         {projects.map((project) => (
           <option key={project.id} value={project.id}>

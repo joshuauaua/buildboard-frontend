@@ -75,7 +75,7 @@ function UserDropdown({ value, onChange }) {
       <br />
       <select
         id="project"
-        name="ProjectID_FK"
+        name="GoalID_FK"
         value={value}
         onChange={onChange}
         className="form-input"
