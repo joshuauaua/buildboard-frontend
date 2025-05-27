@@ -7,7 +7,7 @@ export default function UserDropdown({ value, onChange }) {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5069/Users") // adjust URL as needed
+    axios.get("https://localhost:7007/Users") // adjust URL as needed
       .then((response) => setUsers(response.data))
       .catch((error) => console.error("Failed to fetch users:", error));
   }, []);
@@ -19,7 +19,7 @@ export default function UserDropdown({ value, onChange }) {
       <select className="form-input" name="UserID_FK" value={value} onChange={onChange} required>
         <option value="">Select a user</option>
         {users.map((user) => (
-          <option key={user.id} value={user.id}>
+          <option key={user.userID} value={user.userID}>
             {user.name || user.username}
           </option>
         ))}

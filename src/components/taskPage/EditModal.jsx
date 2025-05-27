@@ -47,7 +47,7 @@ export default function EditModal({ task, onClose, onSave }) {
     };
 
     try {
-      const response = await axios.patch(`http://localhost:5069/tasks/${task.task.id}`, updatedTask);
+      const response = await axios.patch(`https://localhost:7007/tasks/${task.taskID}`, updatedTask);
       console.log("Task updated:", response.data);
       onSave(response.data);
       onClose();

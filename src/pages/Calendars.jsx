@@ -40,7 +40,7 @@ export default function Calendars() {
    useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get("http://localhost:5069/tasks");
+        const response = await axios.get("https://localhost:7007/tasks");
         setEventlist(response.data.map(({ dueDate, title }) => ({
   title,
   start: new Date(dueDate),

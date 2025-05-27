@@ -7,7 +7,7 @@ export default function ProjectDropdown({ value, onChange }) {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5069/api/projects") // adjust URL as needed
+    axios.get("https://localhost:7007/api/projects") // adjust URL as needed
       .then((response) => setProjects(response.data))
       .catch((error) => console.error("Failed to fetch projects:", error));
   }, []);
@@ -18,7 +18,7 @@ export default function ProjectDropdown({ value, onChange }) {
       <select name="GoalID_FK" value={value} onChange={onChange} className="form-input" required>
         <option value="">Select a project</option>
         {projects.map((project) => (
-          <option key={project.id} value={project.id}>
+          <option key={project.projectID} value={project.projectID}>
             {project.title || project.name}
           </option>
         ))}
